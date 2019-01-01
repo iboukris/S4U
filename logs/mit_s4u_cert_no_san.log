@@ -1,0 +1,1134 @@
+$ sudo /home/admin/git/wireshark/target/run/tshark -r mit_s4u_cert_no_san.pcapng -Y kerberos -O kerberos -o kerberos.decrypt:TRUE -K /home/admin/apache.keytab
+Running as user "root" and group "root". This could be dangerous.
+
+Frame 1: 250 bytes on wire (2000 bits), 250 bytes captured (2000 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 192.168.47.100, Dst: 192.168.47.120
+User Datagram Protocol, Src Port: 41664, Dst Port: 88
+Kerberos
+    as-req
+        pvno: 5
+        msg-type: krb-as-req (10)
+        padata: 2 items
+            PA-DATA Unknown:150
+                padata-type: Unknown (150)
+                    padata-value: <MISSING>
+            PA-DATA PA-REQ-ENC-PA-REP
+                padata-type: kRB5-PADATA-REQ-ENC-PA-REP (149)
+                    padata-value: <MISSING>
+        req-body
+            Padding: 0
+            kdc-options: 40800000 (forwardable, renewable)
+                0... .... = reserved: False
+                .1.. .... = forwardable: True
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                1... .... = renewable: True
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...0 = canonicalize: False
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...0 .... = renewable-ok: False
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            cname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                cname-string: 1 item
+                    CNameString: apache
+            realm: ACME.COM
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ACME.COM
+            till: 2019-01-01 12:26:19 (UTC)
+            rtime: 2019-01-07 12:26:19 (UTC)
+            nonce: 896450973
+            etype: 11 items
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA1-96 (17)
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA384-192 (20)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA256-128 (19)
+                ENCTYPE: eTYPE-DES3-CBC-SHA1 (16)
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                ENCTYPE: eTYPE-CAMELLIA128-CTS-CMAC (25)
+                ENCTYPE: eTYPE-CAMELLIA256-CTS-CMAC (26)
+                ENCTYPE: eTYPE-DES-CBC-CRC (1)
+                ENCTYPE: eTYPE-DES-CBC-MD5 (3)
+                ENCTYPE: eTYPE-DES-CBC-MD4 (2)
+
+Frame 2: 271 bytes on wire (2168 bits), 271 bytes captured (2168 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 192.168.47.120, Dst: 192.168.47.100
+User Datagram Protocol, Src Port: 88, Dst Port: 41664
+Kerberos
+    krb-error
+        pvno: 5
+        msg-type: krb-error (30)
+        stime: 2018-12-31 12:26:19 (UTC)
+        susec: 715987
+        error-code: eRR-PREAUTH-REQUIRED (25)
+        realm: ACME.COM
+        sname
+            name-type: kRB5-NT-SRV-INST (2)
+            sname-string: 2 items
+                SNameString: krbtgt
+                SNameString: ACME.COM
+        e-data: 308180305da103020113a256045430523017a003020112a1…
+            PA-DATA PA-ENCTYPE-INFO2
+                padata-type: kRB5-PADATA-ETYPE-INFO2 (19)
+                    padata-value: 30523017a003020112a1101b0e41434d452e434f4d617061…
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                            salt: ACME.COMapache
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-DES-CBC-MD5 (3)
+                            salt: ACME.COMapache
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-DES-CBC-CRC (1)
+                            salt: ACME.COMapache
+            PA-DATA PA-ENC-TIMESTAMP
+                padata-type: kRB5-PADATA-ENC-TIMESTAMP (2)
+                    padata-value: <MISSING>
+            PA-DATA PA-DASS
+                padata-type: kRB5-PADATA-PK-AS-REQ (16)
+                    padata-value: <MISSING>
+            PA-DATA PA-PK-AS-REP
+                padata-type: kRB5-PADATA-PK-AS-REP-19 (15)
+                    padata-value: <MISSING>
+
+Frame 3: 330 bytes on wire (2640 bits), 330 bytes captured (2640 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 192.168.47.100, Dst: 192.168.47.120
+User Datagram Protocol, Src Port: 41653, Dst Port: 88
+Kerberos
+    as-req
+        pvno: 5
+        msg-type: krb-as-req (10)
+        padata: 3 items
+            PA-DATA PA-ENC-TIMESTAMP
+                padata-type: kRB5-PADATA-ENC-TIMESTAMP (2)
+                    padata-value: 3041a003020112a23a043866fb73436ca65b854b292c88aa…
+                        etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                        cipher: 66fb73436ca65b854b292c88aa39bcf0633d12f5cf382076…
+            PA-DATA Unknown:150
+                padata-type: Unknown (150)
+                    padata-value: <MISSING>
+            PA-DATA PA-REQ-ENC-PA-REP
+                padata-type: kRB5-PADATA-REQ-ENC-PA-REP (149)
+                    padata-value: <MISSING>
+        req-body
+            Padding: 0
+            kdc-options: 40800000 (forwardable, renewable)
+                0... .... = reserved: False
+                .1.. .... = forwardable: True
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                1... .... = renewable: True
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...0 = canonicalize: False
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...0 .... = renewable-ok: False
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            cname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                cname-string: 1 item
+                    CNameString: apache
+            realm: ACME.COM
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ACME.COM
+            till: 2019-01-01 12:26:19 (UTC)
+            rtime: 2019-01-07 12:26:19 (UTC)
+            nonce: 1499865152
+            etype: 11 items
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA1-96 (17)
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA384-192 (20)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA256-128 (19)
+                ENCTYPE: eTYPE-DES3-CBC-SHA1 (16)
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                ENCTYPE: eTYPE-CAMELLIA128-CTS-CMAC (25)
+                ENCTYPE: eTYPE-CAMELLIA256-CTS-CMAC (26)
+                ENCTYPE: eTYPE-DES-CBC-CRC (1)
+                ENCTYPE: eTYPE-DES-CBC-MD5 (3)
+                ENCTYPE: eTYPE-DES-CBC-MD4 (2)
+
+Frame 4: 1404 bytes on wire (11232 bits), 1404 bytes captured (11232 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 192.168.47.120, Dst: 192.168.47.100
+User Datagram Protocol, Src Port: 88, Dst Port: 41653
+Kerberos
+    as-rep
+        pvno: 5
+        msg-type: krb-as-rep (11)
+        padata: 1 item
+            PA-DATA PA-ENCTYPE-INFO2
+                padata-type: kRB5-PADATA-ETYPE-INFO2 (19)
+                    padata-value: 30193017a003020112a1101b0e41434d452e434f4d617061…
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                            salt: ACME.COMapache
+        crealm: ACME.COM
+        cname
+            name-type: kRB5-NT-PRINCIPAL (1)
+            cname-string: 1 item
+                CNameString: apache
+        ticket
+            tkt-vno: 5
+            realm: ACME.COM
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ACME.COM
+            enc-part
+                etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                kvno: 2
+                cipher: 6bb6e96528ee13924fd323cccf190db4f40b2c71052e0afe…
+        enc-part
+            etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+            kvno: 6
+            cipher: 11e1603b15899da4604cfc7ac8f3a09368f5270d7307a493…
+                encASRepPart
+                    key
+                        keytype: 18
+                        keyvalue: 3ed2b994676796002f1ff04dbbc2b3370afd0ba026489541…
+                    last-req: 1 item
+                        LastReq item
+                            lr-type: lR-NONE (0)
+                            lr-value: 2018-12-31 12:26:24 (UTC)
+                    nonce: 1499865152
+                    key-expiration: 2037-09-14 02:48:05 (UTC)
+                    Padding: 0
+                    flags: 40e00000 (forwardable, renewable, initial, pre-authent)
+                        0... .... = reserved: False
+                        .1.. .... = forwardable: True
+                        ..0. .... = forwarded: False
+                        ...0 .... = proxiable: False
+                        .... 0... = proxy: False
+                        .... .0.. = may-postdate: False
+                        .... ..0. = postdated: False
+                        .... ...0 = invalid: False
+                        1... .... = renewable: True
+                        .1.. .... = initial: True
+                        ..1. .... = pre-authent: True
+                        ...0 .... = hw-authent: False
+                        .... 0... = transited-policy-checked: False
+                        .... .0.. = ok-as-delegate: False
+                        .... ..0. = unused: False
+                        .... ...0 = enc-pa-rep: False
+                        0... .... = anonymous: False
+                    authtime: 2018-12-31 12:26:24 (UTC)
+                    starttime: 2018-12-31 12:26:24 (UTC)
+                    endtime: 2018-12-31 22:26:24 (UTC)
+                    renew-till: 2019-01-07 12:26:19 (UTC)
+                    srealm: ACME.COM
+                    sname
+                        name-type: kRB5-NT-SRV-INST (2)
+                        sname-string: 2 items
+                            SNameString: krbtgt
+                            SNameString: ACME.COM
+
+Frame 5: 1970 bytes on wire (15760 bits), 1970 bytes captured (15760 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 192.168.47.100, Dst: 192.168.47.120
+Transmission Control Protocol, Src Port: 55562, Dst Port: 88, Seq: 1, Ack: 1, Len: 1902
+Kerberos
+    Record Mark: 1898 bytes
+        0... .... .... .... .... .... .... .... = Reserved: Not set
+        .000 0000 0000 0000 0000 0111 0110 1010 = Record Length: 1898
+    as-req
+        pvno: 5
+        msg-type: krb-as-req (10)
+        padata: 3 items
+            PA-DATA PA-S4U-X509-USER
+                padata-type: kRB5-PADATA-FOR-X509-USER (130)
+                    padata-value: 3082069930820581a003020102020a158276290000000000… (id-at-commonName=ayala,id-at-commonName=Users,dc=acme,dc=com)
+                        signedCertificate
+                            version: v3 (2)
+                            serialNumber: 0x15827629000000000007
+                            signature (sha1WithRSAEncryption)
+                                Algorithm Id: 1.2.840.113549.1.1.5 (sha1WithRSAEncryption)
+                            issuer: rdnSequence (0)
+                                rdnSequence: 3 items (id-at-commonName=acme-WDC-CA,dc=acme,dc=com)
+                                    RDNSequence item: 1 item (dc=com)
+                                        RelativeDistinguishedName item (dc=com)
+                                            Id: 0.9.2342.19200300.100.1.25 (dc)
+                                            IA5String: com
+                                    RDNSequence item: 1 item (dc=acme)
+                                        RelativeDistinguishedName item (dc=acme)
+                                            Id: 0.9.2342.19200300.100.1.25 (dc)
+                                            IA5String: acme
+                                    RDNSequence item: 1 item (id-at-commonName=acme-WDC-CA)
+                                        RelativeDistinguishedName item (id-at-commonName=acme-WDC-CA)
+                                            Id: 2.5.4.3 (id-at-commonName)
+                                            DirectoryString: printableString (1)
+                                                printableString: acme-WDC-CA
+                            validity
+                                notBefore: utcTime (0)
+                                    utcTime: 18-12-26 14:51:29 (UTC)
+                                notAfter: utcTime (0)
+                                    utcTime: 19-12-26 14:51:29 (UTC)
+                            subject: rdnSequence (0)
+                                rdnSequence: 4 items (id-at-commonName=ayala,id-at-commonName=Users,dc=acme,dc=com)
+                                    RDNSequence item: 1 item (dc=com)
+                                        RelativeDistinguishedName item (dc=com)
+                                            Id: 0.9.2342.19200300.100.1.25 (dc)
+                                            IA5String: com
+                                    RDNSequence item: 1 item (dc=acme)
+                                        RelativeDistinguishedName item (dc=acme)
+                                            Id: 0.9.2342.19200300.100.1.25 (dc)
+                                            IA5String: acme
+                                    RDNSequence item: 1 item (id-at-commonName=Users)
+                                        RelativeDistinguishedName item (id-at-commonName=Users)
+                                            Id: 2.5.4.3 (id-at-commonName)
+                                            DirectoryString: printableString (1)
+                                                printableString: Users
+                                    RDNSequence item: 1 item (id-at-commonName=ayala)
+                                        RelativeDistinguishedName item (id-at-commonName=ayala)
+                                            Id: 2.5.4.3 (id-at-commonName)
+                                            DirectoryString: printableString (1)
+                                                printableString: ayala
+                            subjectPublicKeyInfo
+                                algorithm (rsaEncryption)
+                                    Algorithm Id: 1.2.840.113549.1.1.1 (rsaEncryption)
+                                subjectPublicKey: 3082010a0282010100a0a12656cbced6d23cbc7dd2a70f94…
+                                    modulus: 0x00a0a12656cbced6d23cbc7dd2a70f945c59d12292fbb8ff…
+                                    publicExponent: 65537
+                            extensions: 9 items
+                                Extension (id-ms-certificate-template)
+                                    Extension Id: 1.3.6.1.4.1.311.21.7 (id-ms-certificate-template)
+                                    CertificateTemplate
+                                        templateID: 1.3.6.1.4.1.311.21.8.14530948.7827218.16074897.14193006.596382.102.16397961.7041308 (iso.3.6.1.4.1.311.21.8.14530948.7827218.16074897.14193006.596382.102.16397961.7041308)
+                                        templateMajorVersion: 100
+                                        templateMinorVersion: 2
+                                Extension (id-ce-extKeyUsage)
+                                    Extension Id: 2.5.29.37 (id-ce-extKeyUsage)
+                                    KeyPurposeIDs: 3 items
+                                        KeyPurposeId: 1.3.6.1.5.5.7.3.2 (id-kp-clientAuth)
+                                        KeyPurposeId: 1.3.6.1.5.5.7.3.4 (id-kp-emailProtection)
+                                        KeyPurposeId: 1.3.6.1.4.1.311.10.3.4 (id-ms-kp-efs)
+                                Extension (id-ce-keyUsage)
+                                    Extension Id: 2.5.29.15 (id-ce-keyUsage)
+                                    critical: True
+                                    Padding: 5
+                                    KeyUsage: a0 (digitalSignature, keyEncipherment)
+                                        1... .... = digitalSignature: True
+                                        .0.. .... = contentCommitment: False
+                                        ..1. .... = keyEncipherment: True
+                                        ...0 .... = dataEncipherment: False
+                                        .... 0... = keyAgreement: False
+                                        .... .0.. = keyCertSign: False
+                                        .... ..0. = cRLSign: False
+                                        .... ...0 = encipherOnly: False
+                                        0... .... = decipherOnly: False
+                                Extension (id-ms-application-certificate-policies)
+                                    Extension Id: 1.3.6.1.4.1.311.21.10 (id-ms-application-certificate-policies)
+                                    CertificatePoliciesSyntax: 3 items
+                                        PolicyInformation
+                                            policyIdentifier: 1.3.6.1.5.5.7.3.2 (id-kp-clientAuth)
+                                        PolicyInformation
+                                            policyIdentifier: 1.3.6.1.5.5.7.3.4 (id-kp-emailProtection)
+                                        PolicyInformation
+                                            policyIdentifier: 1.3.6.1.4.1.311.10.3.4 (id-ms-kp-efs)
+                                Extension (id-smime-capabilities)
+                                    Extension Id: 1.2.840.113549.1.9.15 (id-smime-capabilities)
+                                    SMIMECapabilities: 10 items
+                                        SMIMECapability id-aes256-CBC
+                                            attrType: 2.16.840.1.101.3.4.1.42 (id-aes256-CBC)
+                                        SMIMECapability id-aes256-wrap
+                                            attrType: 2.16.840.1.101.3.4.1.45 (id-aes256-wrap)
+                                        SMIMECapability id-aes192-CBC
+                                            attrType: 2.16.840.1.101.3.4.1.22 (id-aes192-CBC)
+                                        SMIMECapability id-aes192-wrap
+                                            attrType: 2.16.840.1.101.3.4.1.25 (id-aes192-wrap)
+                                        SMIMECapability id-aes128-CBC
+                                            attrType: 2.16.840.1.101.3.4.1.2 (id-aes128-CBC)
+                                        SMIMECapability id-aes128-wrap
+                                            attrType: 2.16.840.1.101.3.4.1.5 (id-aes128-wrap)
+                                        SMIMECapability des-ede3-cbc
+                                            attrType: 1.2.840.113549.3.7 (des-ede3-cbc)
+                                        SMIMECapability id-alg-des-cbc
+                                            attrType: 1.3.14.3.2.7 (id-alg-des-cbc)
+                                        SMIMECapability rc2-cbc (128 bits)
+                                            attrType: 1.2.840.113549.3.2 (rc2-cbc)
+                                            RC2CBCParameters: rc2WrapParameter (0)
+                                                rc2WrapParameter: 128
+                                        SMIMECapability id-alg-rc4 (512 bits)
+                                            attrType: 1.2.840.113549.3.4 (id-alg-rc4)
+                                            RC2CBCParameters: rc2WrapParameter (0)
+                                                rc2WrapParameter: 512
+                                Extension (id-ce-subjectKeyIdentifier)
+                                    Extension Id: 2.5.29.14 (id-ce-subjectKeyIdentifier)
+                                    SubjectKeyIdentifier: 6aa05d9ca03e3a22c69bf9f4a7ba01f2fcc0e1b4
+                                Extension (id-ce-authorityKeyIdentifier)
+                                    Extension Id: 2.5.29.35 (id-ce-authorityKeyIdentifier)
+                                    AuthorityKeyIdentifier
+                                        keyIdentifier: bf371eb6b514182aaba9517b98eaa5c1c470107d
+                                Extension (id-ce-cRLDistributionPoints)
+                                    Extension Id: 2.5.29.31 (id-ce-cRLDistributionPoints)
+                                    CRLDistPointsSyntax: 1 item
+                                        DistributionPoint
+                                            distributionPoint: fullName (0)
+                                                fullName: 2 items
+                                                    GeneralName: uniformResourceIdentifier (6)
+                                                        uniformResourceIdentifier: ldap:///CN=acme-WDC-CA,CN=WDC,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=acme,DC=com?certificateRevocationList?base?objectClass=cRLDistributionPoint
+                                                    GeneralName: uniformResourceIdentifier (6)
+                                                        uniformResourceIdentifier: http://wdc.acme.com/CertEnroll/acme-WDC-CA.crl
+                                Extension (id-pe-authorityInfoAccess)
+                                    Extension Id: 1.3.6.1.5.5.7.1.1 (id-pe-authorityInfoAccess)
+                                    AuthorityInfoAccessSyntax: 2 items
+                                        AccessDescription
+                                            accessMethod: 1.3.6.1.5.5.7.48.2 (id-ad-caIssuers)
+                                            accessLocation: 6
+                                                uniformResourceIdentifier: ldap:///CN=acme-WDC-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=acme,DC=com?cACertificate?base?objectClass=certificationAuthority
+                                        AccessDescription
+                                            accessMethod: 1.3.6.1.5.5.7.48.2 (id-ad-caIssuers)
+                                            accessLocation: 6
+                                                uniformResourceIdentifier: http://wdc.acme.com/CertEnroll/WDC.acme.com_acme-WDC-CA.crt
+                        algorithmIdentifier (sha1WithRSAEncryption)
+                            Algorithm Id: 1.2.840.113549.1.1.5 (sha1WithRSAEncryption)
+                        Padding: 0
+                        encrypted: 0f8598fb22881487e69794191e3ac20afc1884448c1881a6…
+            PA-DATA Unknown:150
+                padata-type: Unknown (150)
+                    padata-value: <MISSING>
+            PA-DATA PA-REQ-ENC-PA-REP
+                padata-type: kRB5-PADATA-REQ-ENC-PA-REP (149)
+                    padata-value: <MISSING>
+        req-body
+            Padding: 0
+            kdc-options: 00010010 (canonicalize, renewable-ok)
+                0... .... = reserved: False
+                .0.. .... = forwardable: False
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                0... .... = renewable: False
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...1 = canonicalize: True
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...1 .... = renewable-ok: True
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            cname
+                name-type: kRB5-NT-X500-PRINCIPAL (6)
+                cname-string: 1 item
+                    CNameString: 
+            realm: ACME.COM
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ACME.COM
+            till: 2018-12-31 12:26:57 (UTC)
+            nonce: 572907351
+            etype: 11 items
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA1-96 (17)
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA384-192 (20)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA256-128 (19)
+                ENCTYPE: eTYPE-DES3-CBC-SHA1 (16)
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                ENCTYPE: eTYPE-CAMELLIA128-CTS-CMAC (25)
+                ENCTYPE: eTYPE-CAMELLIA256-CTS-CMAC (26)
+                ENCTYPE: eTYPE-DES-CBC-CRC (1)
+                ENCTYPE: eTYPE-DES-CBC-MD5 (3)
+                ENCTYPE: eTYPE-DES-CBC-MD4 (2)
+
+Frame 6: 294 bytes on wire (2352 bits), 294 bytes captured (2352 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 192.168.47.120, Dst: 192.168.47.100
+Transmission Control Protocol, Src Port: 88, Dst Port: 55562, Seq: 1, Ack: 1903, Len: 226
+Kerberos
+    Record Mark: 222 bytes
+        0... .... .... .... .... .... .... .... = Reserved: Not set
+        .000 0000 0000 0000 0000 0000 1101 1110 = Record Length: 222
+    krb-error
+        pvno: 5
+        msg-type: krb-error (30)
+        stime: 2018-12-31 12:26:41 (UTC)
+        susec: 165987
+        error-code: eRR-PREAUTH-REQUIRED (25)
+        realm: ACME.COM
+        sname
+            name-type: kRB5-NT-SRV-INST (2)
+            sname-string: 2 items
+                SNameString: krbtgt
+                SNameString: ACME.COM
+        e-data: 307d305aa103020113a2530451304f3016a003020112a10f…
+            PA-DATA PA-ENCTYPE-INFO2
+                padata-type: kRB5-PADATA-ETYPE-INFO2 (19)
+                    padata-value: 304f3016a003020112a10f1b0d41434d452e434f4d617961…
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                            salt: ACME.COMayala
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-DES-CBC-MD5 (3)
+                            salt: ACME.COMayala
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-DES-CBC-CRC (1)
+                            salt: ACME.COMayala
+            PA-DATA PA-ENC-TIMESTAMP
+                padata-type: kRB5-PADATA-ENC-TIMESTAMP (2)
+                    padata-value: <MISSING>
+            PA-DATA PA-DASS
+                padata-type: kRB5-PADATA-PK-AS-REQ (16)
+                    padata-value: <MISSING>
+            PA-DATA PA-PK-AS-REP
+                padata-type: kRB5-PADATA-PK-AS-REP-19 (15)
+                    padata-value: <MISSING>
+
+Frame 8: 2319 bytes on wire (18552 bits), 2319 bytes captured (18552 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 192.168.47.100, Dst: 192.168.47.120
+Transmission Control Protocol, Src Port: 55564, Dst Port: 88, Seq: 2897, Ack: 1, Len: 2251
+[2 Reassembled TCP Segments (5147 bytes): #7(2896), #8(2251)]
+Kerberos
+    Record Mark: 5143 bytes
+        0... .... .... .... .... .... .... .... = Reserved: Not set
+        .000 0000 0000 0000 0001 0100 0001 0111 = Record Length: 5143
+    tgs-req
+        pvno: 5
+        msg-type: krb-tgs-req (12)
+        padata: 3 items
+            PA-DATA PA-TGS-REQ
+                padata-type: kRB5-PADATA-TGS-REQ (1)
+                    padata-value: 6e8204a13082049da003020105a10302010ea20703050000…
+                        ap-req
+                            pvno: 5
+                            msg-type: krb-ap-req (14)
+                            Padding: 0
+                            ap-options: 00000000
+                                0... .... = reserved: False
+                                .0.. .... = use-session-key: False
+                                ..0. .... = mutual-required: False
+                            ticket
+                                tkt-vno: 5
+                                realm: ACME.COM
+                                sname
+                                    name-type: kRB5-NT-SRV-INST (2)
+                                    sname-string: 2 items
+                                        SNameString: krbtgt
+                                        SNameString: ACME.COM
+                                enc-part
+                                    etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                                    kvno: 2
+                                    cipher: 6bb6e96528ee13924fd323cccf190db4f40b2c71052e0afe…
+                            authenticator
+                                etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                                cipher: ce9bc4b1fff58ed0d92b8063a543dbd0c0680148f0cd2407…
+                                    authenticator
+                                        authenticator-vno: 5
+                                        crealm: ACME.COM
+                                        cname
+                                            name-type: kRB5-NT-PRINCIPAL (1)
+                                            cname-string: 1 item
+                                                CNameString: apache
+                                        cksum
+                                            cksumtype: cKSUMTYPE-HMAC-SHA1-96-AES-256 (16)
+                                            checksum: 6928060585f7b31cbe308eab
+                                        cusec: 104398
+                                        ctime: 2018-12-31 12:26:42 (UTC)
+                                        subkey
+                                            keytype: 18
+                                            keyvalue: f3c08db7cd853b813dbbab2bdba440e47d14ac27d0377d5a…
+            PA-DATA PA-FX-FAST
+                padata-type: kRB5-PADATA-FX-FAST (136)
+                    padata-value: a08207ca308207c6a1173015a003020110a10e040cd7bcb2…
+                        armored-data
+                            req-checksum
+                                cksumtype: cKSUMTYPE-HMAC-SHA1-96-AES-256 (16)
+                                checksum: d7bcb25a2c961a1d8d86ad98
+                            enc-fast-req
+                                etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                                cipher: 0cf5f7bc1fceda6c41f522f9de7381677387aec9814060b5…
+            PA-DATA PA-S4U-X509-USER
+                padata-type: kRB5-PADATA-FOR-X509-USER (130)
+                    padata-value: 308206e3a08206c6308206c2a006020459292a81a20a1b08…
+                        user-id
+                            nonce: 1495870081
+                            crealm: ACME.COM
+                            subject-certificate: 3082069930820581a003020102020a158276290000000000… (id-at-commonName=ayala,id-at-commonName=Users,dc=acme,dc=com)
+                                signedCertificate
+                                    version: v3 (2)
+                                    serialNumber: 0x15827629000000000007
+                                    signature (sha1WithRSAEncryption)
+                                        Algorithm Id: 1.2.840.113549.1.1.5 (sha1WithRSAEncryption)
+                                    issuer: rdnSequence (0)
+                                        rdnSequence: 3 items (id-at-commonName=acme-WDC-CA,dc=acme,dc=com)
+                                            RDNSequence item: 1 item (dc=com)
+                                                RelativeDistinguishedName item (dc=com)
+                                                    Id: 0.9.2342.19200300.100.1.25 (dc)
+                                                    IA5String: com
+                                            RDNSequence item: 1 item (dc=acme)
+                                                RelativeDistinguishedName item (dc=acme)
+                                                    Id: 0.9.2342.19200300.100.1.25 (dc)
+                                                    IA5String: acme
+                                            RDNSequence item: 1 item (id-at-commonName=acme-WDC-CA)
+                                                RelativeDistinguishedName item (id-at-commonName=acme-WDC-CA)
+                                                    Id: 2.5.4.3 (id-at-commonName)
+                                                    DirectoryString: printableString (1)
+                                                        printableString: acme-WDC-CA
+                                    validity
+                                        notBefore: utcTime (0)
+                                            utcTime: 18-12-26 14:51:29 (UTC)
+                                        notAfter: utcTime (0)
+                                            utcTime: 19-12-26 14:51:29 (UTC)
+                                    subject: rdnSequence (0)
+                                        rdnSequence: 4 items (id-at-commonName=ayala,id-at-commonName=Users,dc=acme,dc=com)
+                                            RDNSequence item: 1 item (dc=com)
+                                                RelativeDistinguishedName item (dc=com)
+                                                    Id: 0.9.2342.19200300.100.1.25 (dc)
+                                                    IA5String: com
+                                            RDNSequence item: 1 item (dc=acme)
+                                                RelativeDistinguishedName item (dc=acme)
+                                                    Id: 0.9.2342.19200300.100.1.25 (dc)
+                                                    IA5String: acme
+                                            RDNSequence item: 1 item (id-at-commonName=Users)
+                                                RelativeDistinguishedName item (id-at-commonName=Users)
+                                                    Id: 2.5.4.3 (id-at-commonName)
+                                                    DirectoryString: printableString (1)
+                                                        printableString: Users
+                                            RDNSequence item: 1 item (id-at-commonName=ayala)
+                                                RelativeDistinguishedName item (id-at-commonName=ayala)
+                                                    Id: 2.5.4.3 (id-at-commonName)
+                                                    DirectoryString: printableString (1)
+                                                        printableString: ayala
+                                    subjectPublicKeyInfo
+                                        algorithm (rsaEncryption)
+                                            Algorithm Id: 1.2.840.113549.1.1.1 (rsaEncryption)
+                                        subjectPublicKey: 3082010a0282010100a0a12656cbced6d23cbc7dd2a70f94…
+                                            modulus: 0x00a0a12656cbced6d23cbc7dd2a70f945c59d12292fbb8ff…
+                                            publicExponent: 65537
+                                    extensions: 9 items
+                                        Extension (id-ms-certificate-template)
+                                            Extension Id: 1.3.6.1.4.1.311.21.7 (id-ms-certificate-template)
+                                            CertificateTemplate
+                                                templateID: 1.3.6.1.4.1.311.21.8.14530948.7827218.16074897.14193006.596382.102.16397961.7041308 (iso.3.6.1.4.1.311.21.8.14530948.7827218.16074897.14193006.596382.102.16397961.7041308)
+                                                templateMajorVersion: 100
+                                                templateMinorVersion: 2
+                                        Extension (id-ce-extKeyUsage)
+                                            Extension Id: 2.5.29.37 (id-ce-extKeyUsage)
+                                            KeyPurposeIDs: 3 items
+                                                KeyPurposeId: 1.3.6.1.5.5.7.3.2 (id-kp-clientAuth)
+                                                KeyPurposeId: 1.3.6.1.5.5.7.3.4 (id-kp-emailProtection)
+                                                KeyPurposeId: 1.3.6.1.4.1.311.10.3.4 (id-ms-kp-efs)
+                                        Extension (id-ce-keyUsage)
+                                            Extension Id: 2.5.29.15 (id-ce-keyUsage)
+                                            critical: True
+                                            Padding: 5
+                                            KeyUsage: a0 (digitalSignature, keyEncipherment)
+                                                1... .... = digitalSignature: True
+                                                .0.. .... = contentCommitment: False
+                                                ..1. .... = keyEncipherment: True
+                                                ...0 .... = dataEncipherment: False
+                                                .... 0... = keyAgreement: False
+                                                .... .0.. = keyCertSign: False
+                                                .... ..0. = cRLSign: False
+                                                .... ...0 = encipherOnly: False
+                                                0... .... = decipherOnly: False
+                                        Extension (id-ms-application-certificate-policies)
+                                            Extension Id: 1.3.6.1.4.1.311.21.10 (id-ms-application-certificate-policies)
+                                            CertificatePoliciesSyntax: 3 items
+                                                PolicyInformation
+                                                    policyIdentifier: 1.3.6.1.5.5.7.3.2 (id-kp-clientAuth)
+                                                PolicyInformation
+                                                    policyIdentifier: 1.3.6.1.5.5.7.3.4 (id-kp-emailProtection)
+                                                PolicyInformation
+                                                    policyIdentifier: 1.3.6.1.4.1.311.10.3.4 (id-ms-kp-efs)
+                                        Extension (id-smime-capabilities)
+                                            Extension Id: 1.2.840.113549.1.9.15 (id-smime-capabilities)
+                                            SMIMECapabilities: 10 items
+                                                SMIMECapability id-aes256-CBC
+                                                    attrType: 2.16.840.1.101.3.4.1.42 (id-aes256-CBC)
+                                                SMIMECapability id-aes256-wrap
+                                                    attrType: 2.16.840.1.101.3.4.1.45 (id-aes256-wrap)
+                                                SMIMECapability id-aes192-CBC
+                                                    attrType: 2.16.840.1.101.3.4.1.22 (id-aes192-CBC)
+                                                SMIMECapability id-aes192-wrap
+                                                    attrType: 2.16.840.1.101.3.4.1.25 (id-aes192-wrap)
+                                                SMIMECapability id-aes128-CBC
+                                                    attrType: 2.16.840.1.101.3.4.1.2 (id-aes128-CBC)
+                                                SMIMECapability id-aes128-wrap
+                                                    attrType: 2.16.840.1.101.3.4.1.5 (id-aes128-wrap)
+                                                SMIMECapability des-ede3-cbc
+                                                    attrType: 1.2.840.113549.3.7 (des-ede3-cbc)
+                                                SMIMECapability id-alg-des-cbc
+                                                    attrType: 1.3.14.3.2.7 (id-alg-des-cbc)
+                                                SMIMECapability rc2-cbc (128 bits)
+                                                    attrType: 1.2.840.113549.3.2 (rc2-cbc)
+                                                    RC2CBCParameters: rc2WrapParameter (0)
+                                                        rc2WrapParameter: 128
+                                                SMIMECapability id-alg-rc4 (512 bits)
+                                                    attrType: 1.2.840.113549.3.4 (id-alg-rc4)
+                                                    RC2CBCParameters: rc2WrapParameter (0)
+                                                        rc2WrapParameter: 512
+                                        Extension (id-ce-subjectKeyIdentifier)
+                                            Extension Id: 2.5.29.14 (id-ce-subjectKeyIdentifier)
+                                            SubjectKeyIdentifier: 6aa05d9ca03e3a22c69bf9f4a7ba01f2fcc0e1b4
+                                        Extension (id-ce-authorityKeyIdentifier)
+                                            Extension Id: 2.5.29.35 (id-ce-authorityKeyIdentifier)
+                                            AuthorityKeyIdentifier
+                                                keyIdentifier: bf371eb6b514182aaba9517b98eaa5c1c470107d
+                                        Extension (id-ce-cRLDistributionPoints)
+                                            Extension Id: 2.5.29.31 (id-ce-cRLDistributionPoints)
+                                            CRLDistPointsSyntax: 1 item
+                                                DistributionPoint
+                                                    distributionPoint: fullName (0)
+                                                        fullName: 2 items
+                                                            GeneralName: uniformResourceIdentifier (6)
+                                                                uniformResourceIdentifier: ldap:///CN=acme-WDC-CA,CN=WDC,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=acme,DC=com?certificateRevocationList?base?objectClass=cRLDistributionPoint
+                                                            GeneralName: uniformResourceIdentifier (6)
+                                                                uniformResourceIdentifier: http://wdc.acme.com/CertEnroll/acme-WDC-CA.crl
+                                        Extension (id-pe-authorityInfoAccess)
+                                            Extension Id: 1.3.6.1.5.5.7.1.1 (id-pe-authorityInfoAccess)
+                                            AuthorityInfoAccessSyntax: 2 items
+                                                AccessDescription
+                                                    accessMethod: 1.3.6.1.5.5.7.48.2 (id-ad-caIssuers)
+                                                    accessLocation: 6
+                                                        uniformResourceIdentifier: ldap:///CN=acme-WDC-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=acme,DC=com?cACertificate?base?objectClass=certificationAuthority
+                                                AccessDescription
+                                                    accessMethod: 1.3.6.1.5.5.7.48.2 (id-ad-caIssuers)
+                                                    accessLocation: 6
+                                                        uniformResourceIdentifier: http://wdc.acme.com/CertEnroll/WDC.acme.com_acme-WDC-CA.crt
+                                algorithmIdentifier (sha1WithRSAEncryption)
+                                    Algorithm Id: 1.2.840.113549.1.1.5 (sha1WithRSAEncryption)
+                                Padding: 0
+                                encrypted: 0f8598fb22881487e69794191e3ac20afc1884448c1881a6…
+                            Padding: 0
+                            options: 20000000
+                        checksum
+                            cksumtype: cKSUMTYPE-HMAC-SHA1-96-AES-256 (16)
+                            checksum: 82754874737f559f3640844e
+        req-body
+            Padding: 0
+            kdc-options: 40810000 (forwardable, renewable, canonicalize)
+                0... .... = reserved: False
+                .1.. .... = forwardable: True
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                1... .... = renewable: True
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...1 = canonicalize: True
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...0 .... = renewable-ok: False
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            realm: ACME.COM
+            sname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                sname-string: 1 item
+                    SNameString: apache
+            till: 2018-12-31 22:26:24 (UTC)
+            nonce: 1495870081
+            etype: 11 items
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA1-96 (17)
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA384-192 (20)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA256-128 (19)
+                ENCTYPE: eTYPE-DES3-CBC-SHA1 (16)
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                ENCTYPE: eTYPE-CAMELLIA128-CTS-CMAC (25)
+                ENCTYPE: eTYPE-CAMELLIA256-CTS-CMAC (26)
+                ENCTYPE: eTYPE-DES-CBC-CRC (1)
+                ENCTYPE: eTYPE-DES-CBC-MD5 (3)
+                ENCTYPE: eTYPE-DES-CBC-MD4 (2)
+
+Frame 9: 1442 bytes on wire (11536 bits), 1442 bytes captured (11536 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 192.168.47.120, Dst: 192.168.47.100
+Transmission Control Protocol, Src Port: 88, Dst Port: 55564, Seq: 1, Ack: 5148, Len: 1374
+Kerberos
+    Record Mark: 1370 bytes
+        0... .... .... .... .... .... .... .... = Reserved: Not set
+        .000 0000 0000 0000 0000 0101 0101 1010 = Record Length: 1370
+    tgs-rep
+        pvno: 5
+        msg-type: krb-tgs-rep (13)
+        padata: 1 item
+            PA-DATA PA-S4U-X509-USER
+                padata-type: kRB5-PADATA-FOR-X509-USER (130)
+                    padata-value: 3045a02a3028a006020459292a81a1123010a003020180a1…
+                        user-id
+                            nonce: 1495870081
+                            cname
+                                name-type: kRB5-NT-MS-PRINCIPAL (-128)
+                                name-string: 1 item
+                                    KerberosString: ayala
+                            crealm: ACME.COM
+                        checksum
+                            cksumtype: cKSUMTYPE-HMAC-SHA1-96-AES-256 (16)
+                            checksum: f85b62b86e6503c25389558a
+        crealm: ACME.COM
+        cname
+            name-type: kRB5-NT-MS-PRINCIPAL (-128)
+            cname-string: 1 item
+                CNameString: ayala
+        ticket
+            tkt-vno: 5
+            realm: ACME.COM
+            sname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                sname-string: 1 item
+                    SNameString: apache
+            enc-part
+                etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                kvno: 6
+                cipher: 37aed3b64498a2db40aaaa2472bc253a517ee2b17b90e692…
+                    encTicketPart
+                        Padding: 0
+                        flags: 00a00000 (renewable, pre-authent)
+                            0... .... = reserved: False
+                            .0.. .... = forwardable: False
+                            ..0. .... = forwarded: False
+                            ...0 .... = proxiable: False
+                            .... 0... = proxy: False
+                            .... .0.. = may-postdate: False
+                            .... ..0. = postdated: False
+                            .... ...0 = invalid: False
+                            1... .... = renewable: True
+                            .0.. .... = initial: False
+                            ..1. .... = pre-authent: True
+                            ...0 .... = hw-authent: False
+                            .... 0... = transited-policy-checked: False
+                            .... .0.. = ok-as-delegate: False
+                            .... ..0. = unused: False
+                            .... ...0 = enc-pa-rep: False
+                            0... .... = anonymous: False
+                        key
+                            keytype: 18
+                            keyvalue: 1d5c5e39405bead50ba03d26eea1565eab607a5fd6867567…
+                        crealm: ACME.COM
+                        cname
+                            name-type: kRB5-NT-MS-PRINCIPAL (-128)
+                            cname-string: 1 item
+                                CNameString: ayala
+                        transited
+                            tr-type: 1
+                            contents: <MISSING>
+                        authtime: 2018-12-31 12:26:24 (UTC)
+                        starttime: 2018-12-31 12:26:41 (UTC)
+                        endtime: 2018-12-31 22:26:24 (UTC)
+                        renew-till: 2019-01-07 12:26:19 (UTC)
+                        authorization-data: 1 item
+                            AuthorizationData item
+                                ad-type: AD-IF-RELEVANT (1)
+                                ad-data: 308202823082027ea00402020080a1820274048202700500…
+                                    AuthorizationData item
+                                        ad-type: AD-Win2k-PAC (128)
+                                        ad-data: 050000000000000001000000a00100005800000000000000…
+                                            Num Entries: 5
+                                            Version: 0
+                                            Type: Logon Info (1)
+                                                Size: 416
+                                                Offset: 88
+                                                PAC_LOGON_INFO: 01100800cccccccc9001000000000000000002006021fc97…
+                                                    MES header
+                                                        Version: 1
+                                                        DREP
+                                                            Byte order: Little-endian (1)
+                                                        HDR Length: 8
+                                                        Fill bytes: 0xcccccccc
+                                                        Blob Length: 400
+                                                    PAC_LOGON_INFO:
+                                                        Referent ID: 0x00020000
+                                                        Logon Time: Dec 29, 2018 13:35:26.582000000 IST
+                                                        Logoff Time: Infinity (absolute time)
+                                                        Kickoff Time: Infinity (absolute time)
+                                                        PWD Last Set: Dec 23, 2018 18:17:34.496189200 IST
+                                                        PWD Can Change: Dec 23, 2018 18:17:34.496189200 IST
+                                                        PWD Must Change: Infinity (absolute time)
+                                                        Acct Name: ayala
+                                                            Length: 10
+                                                            Size: 10
+                                                            Character Array: ayala
+                                                                Referent ID: 0x00020004
+                                                                Max Count: 5
+                                                                Offset: 0
+                                                                Actual Count: 5
+                                                                Acct Name: ayala
+                                                        Full Name: ayala
+                                                            Length: 10
+                                                            Size: 10
+                                                            Character Array: ayala
+                                                                Referent ID: 0x00020008
+                                                                Max Count: 5
+                                                                Offset: 0
+                                                                Actual Count: 5
+                                                                Full Name: ayala
+                                                        Logon Script
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x0002000c
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Profile Path
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020010
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Home Dir
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020014
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Dir Drive
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020018
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Logon Count: 61
+                                                        Bad PW Count: 0
+                                                        User RID: 1119
+                                                        Group RID: 513
+                                                        Num RIDs: 1
+                                                        GROUP_MEMBERSHIP_ARRAY
+                                                            Referent ID: 0x0002001c
+                                                            Max Count: 1
+                                                            GROUP_MEMBERSHIP:
+                                                                Group RID: 513
+                                                                Attributes: 0x00000007
+                                                                    .... .... .... .... .... .... .... .1.. = Enabled: The enabled bit is SET
+                                                                    .... .... .... .... .... .... .... ..1. = Enabled By Default: The ENABLED_BY_DEFAULT bit is SET
+                                                                    .... .... .... .... .... .... .... ...1 = Mandatory: The MANDATORY bit is SET
+                                                        User Flags: 0x00000020
+                                                            .... .... .... .... .... ..0. .... .... = Resource Groups: The resource_groups is NOT set
+                                                            .... .... .... .... .... .... ..1. .... = Extra SIDs: The EXTRA_SIDS bit is SET
+                                                        User Session Key: 00000000000000000000000000000000
+                                                        Server: WDC
+                                                            Length: 6
+                                                            Size: 8
+                                                            Character Array: WDC
+                                                                Referent ID: 0x00020020
+                                                                Max Count: 4
+                                                                Offset: 0
+                                                                Actual Count: 3
+                                                                Server: WDC
+                                                        Domain: ACME
+                                                            Length: 8
+                                                            Size: 10
+                                                            Character Array: ACME
+                                                                Referent ID: 0x00020024
+                                                                Max Count: 5
+                                                                Offset: 0
+                                                                Actual Count: 4
+                                                                Domain: ACME
+                                                        SID pointer:
+                                                            SID pointer
+                                                                Referent ID: 0x00020028
+                                                                Count: 4
+                                                                Domain SID: S-1-5-21-9281652-3921847615-585208160  (Domain SID)
+                                                                    Revision: 1
+                                                                    Num Auth: 4
+                                                                    Authority: 5
+                                                                    Subauthorities: 21-9281652-3921847615-585208160
+                                                        Dummy1 Long: 0x00000000
+                                                        Dummy2 Long: 0x00000000
+                                                        User Account Control: 0x00000210
+                                                            .... .... .... ...0 .... .... .... .... = Don't Require PreAuth: This account REQUIRES preauthentication
+                                                            .... .... .... .... 0... .... .... .... = Use DES Key Only: This account does NOT have to use_des_key_only
+                                                            .... .... .... .... .0.. .... .... .... = Not Delegated: This might have been delegated
+                                                            .... .... .... .... ..0. .... .... .... = Trusted For Delegation: This account is NOT trusted_for_delegation
+                                                            .... .... .... .... ...0 .... .... .... = SmartCard Required: This account does NOT require_smartcard to authenticate
+                                                            .... .... .... .... .... 0... .... .... = Encrypted Text Password Allowed: This account does NOT allow encrypted_text_password
+                                                            .... .... .... .... .... .0.. .... .... = Account Auto Locked: This account is NOT auto_locked
+                                                            .... .... .... .... .... ..1. .... .... = Don't Expire Password: This account DOESN'T_EXPIRE_PASSWORDs
+                                                            .... .... .... .... .... ...0 .... .... = Server Trust Account: This account is NOT a server_trust_account
+                                                            .... .... .... .... .... .... 0... .... = Workstation Trust Account: This account is NOT a workstation_trust_account
+                                                            .... .... .... .... .... .... .0.. .... = Interdomain trust Account: This account is NOT an interdomain_trust_account
+                                                            .... .... .... .... .... .... ..0. .... = MNS Logon Account: This account is NOT a mns_logon_account
+                                                            .... .... .... .... .... .... ...1 .... = Normal Account: This account is a NORMAL_ACCOUNT
+                                                            .... .... .... .... .... .... .... 0... = Temp Duplicate Account: This account is NOT a temp_duplicate_account
+                                                            .... .... .... .... .... .... .... .0.. = Password Not Required: This account REQUIRES a password
+                                                            .... .... .... .... .... .... .... ..0. = Home Directory Required: This account does NOT require_home_directory
+                                                            .... .... .... .... .... .... .... ...0 = Account Disabled: This account is NOT disabled
+                                                        Dummy4 Long: 0x00000000
+                                                        Dummy5 Long: 0x00000000
+                                                        Dummy6 Long: 0x00000000
+                                                        Dummy7 Long: 0x00000000
+                                                        Dummy8 Long: 0x00000000
+                                                        Dummy9 Long: 0x00000000
+                                                        Dummy10 Long: 0x00000000
+                                                        Num Extra SID: 0
+                                                        NULL Pointer: SID_AND_ATTRIBUTES_ARRAY:
+                                                        SID pointer:
+                                                            NULL Pointer: SID pointer
+                                                        ResourceGroup count: 0
+                                                        NULL Pointer: ResourceGroupIDs
+                                            Type: Client Info Type (10)
+                                                Size: 20
+                                                Offset: 504
+                                                PAC_CLIENT_INFO_TYPE: 00982c0b04a1d4010a006100790061006c006100
+                                                    ClientID: Dec 31, 2018 14:26:24.000000000 IST
+                                                    Name Length: 10
+                                                    Name: ayala
+                                            Type: UPN DNS Info (12)
+                                                Size: 56
+                                                Offset: 528
+                                                UPN_DNS_INFO: 120010001000280000000000000000006100790061006c00…
+                                                    UPN Len: 18
+                                                    UPN Offset: 16
+                                                    DNS Len: 16
+                                                    DNS Offset: 40
+                                                    Flags: 0x00000000
+                                                    UPN Name: ayala@abc
+                                                    DNS Name: ACME.COM
+                                            Type: Server Checksum (6)
+                                                Size: 16
+                                                Offset: 584
+                                                PAC_SERVER_CHECKSUM: 1000000027d8b9dc8c9c108ee251b5b4
+                                                    Type: 16
+                                                    Signature: 27d8b9dc8c9c108ee251b5b4
+                                            Type: Privsvr Checksum (7)
+                                                Size: 20
+                                                Offset: 600
+                                                PAC_PRIVSVR_CHECKSUM: 76ffffffb564722dc7aec99e8e9ea4290e4d8440
+                                                    Type: -138
+                                                    Signature: b564722dc7aec99e8e9ea4290e4d8440
+        enc-part
+            etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+            cipher: e65e115af3ca85a267fb95aef7b01d18b784b3198447fb7c…
+                encTGSRepPart
+                    key
+                        keytype: 18
+                        keyvalue: 1d5c5e39405bead50ba03d26eea1565eab607a5fd6867567…
+                    last-req: 1 item
+                        LastReq item
+                            lr-type: lR-NONE (0)
+                            lr-value: 2018-12-31 12:26:41 (UTC)
+                    nonce: 1495870081
+                    Padding: 0
+                    flags: 00a00000 (renewable, pre-authent)
+                        0... .... = reserved: False
+                        .0.. .... = forwardable: False
+                        ..0. .... = forwarded: False
+                        ...0 .... = proxiable: False
+                        .... 0... = proxy: False
+                        .... .0.. = may-postdate: False
+                        .... ..0. = postdated: False
+                        .... ...0 = invalid: False
+                        1... .... = renewable: True
+                        .0.. .... = initial: False
+                        ..1. .... = pre-authent: True
+                        ...0 .... = hw-authent: False
+                        .... 0... = transited-policy-checked: False
+                        .... .0.. = ok-as-delegate: False
+                        .... ..0. = unused: False
+                        .... ...0 = enc-pa-rep: False
+                        0... .... = anonymous: False
+                    authtime: 2018-12-31 12:26:24 (UTC)
+                    starttime: 2018-12-31 12:26:41 (UTC)
+                    endtime: 2018-12-31 22:26:24 (UTC)
+                    renew-till: 2019-01-07 12:26:19 (UTC)
+                    srealm: ACME.COM
+                    sname
+                        name-type: kRB5-NT-PRINCIPAL (1)
+                        sname-string: 1 item
+                            SNameString: apache
+                    encrypted-pa-data: 1 item
+                        PA-DATA Unknown:165
+                            padata-type: kRB5-PADATA-SUPPORTED-ETYPES (165)
+                                padata-value: 1f000000
+
