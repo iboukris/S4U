@@ -131,7 +131,7 @@ int main(int argc, char* argv[])
 
     int i = 1;
     while (i < argc - 1) {
-        if (i + 1 >= argc || strlen(argv[i]) != 2 || argv[1][0] != '-')
+        if (i + 1 >= argc || strlen(argv[i]) != 2 || argv[i][0] != '-')
            usage_exit();
 
 	switch (argv[i][1]) {
