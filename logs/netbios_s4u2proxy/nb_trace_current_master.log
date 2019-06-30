@@ -1,0 +1,128 @@
+$ echo PWD | kinit -f srv-kerberos-kcd@ALPHA.LOCAL && KRB5_TRACE=/dev/stdout kvno -I Administrator@ALPHA.LOCAL -P HTTP/iis-host.alpha.local@ALPHA
+Password for srv-kerberos-kcd@ALPHA.LOCAL:
+[6515] 1561893830.210842: Getting credentials Administrator@ALPHA.LOCAL -> srv-kerberos-kcd@ALPHA.LOCAL using ccache FILE:/tmp/krb5cc_1000
+[6515] 1561893830.210843: Retrieving Administrator@ALPHA.LOCAL -> srv-kerberos-kcd@ALPHA.LOCAL from FILE:/tmp/krb5cc_1000 with result: -1765328243/Matching credential not found (filename: /tmp/krb5cc_1000)
+[6515] 1561893830.210844: Getting credentials srv-kerberos-kcd@ALPHA.LOCAL -> krbtgt/ALPHA.LOCAL@ALPHA.LOCAL using ccache FILE:/tmp/krb5cc_1000
+[6515] 1561893830.210845: Retrieving srv-kerberos-kcd@ALPHA.LOCAL -> krbtgt/ALPHA.LOCAL@ALPHA.LOCAL from FILE:/tmp/krb5cc_1000 with result: 0/Success
+[6515] 1561893830.210846: Get cred via TGT krbtgt/ALPHA.LOCAL@ALPHA.LOCAL after requesting srv-kerberos-kcd@ALPHA.LOCAL (canonicalize on)
+[6515] 1561893830.210847: Generated subkey for TGS request: aes256-cts/FA9F
+[6515] 1561893830.210848: etypes requested in TGS request: aes256-cts, aes128-cts, aes256-sha2, aes128-sha2, des3-cbc-sha1, rc4-hmac, camellia128-cts, camellia256-cts
+[6515] 1561893830.210850: Encoding request body and padata into FAST request
+[6515] 1561893830.210851: Sending request (2151 bytes) to ALPHA.LOCAL
+[6515] 1561893830.210852: Sending DNS URI query for _kerberos.ALPHA.LOCAL.
+[6515] 1561893830.210853: No URI records found
+[6515] 1561893830.210854: Sending DNS SRV query for _kerberos._udp.ALPHA.LOCAL.
+[6515] 1561893830.210855: SRV answer: 0 100 88 "dc11-test.alpha.local."
+[6515] 1561893830.210856: Sending DNS SRV query for _kerberos._tcp.ALPHA.LOCAL.
+[6515] 1561893830.210857: SRV answer: 0 100 88 "dc11-test.alpha.local."
+[6515] 1561893830.210858: Resolving hostname dc11-test.alpha.local.
+[6515] 1561893830.210859: Resolving hostname dc11-test.alpha.local.
+[6515] 1561893830.210860: Initiating TCP connection to stream 172.16.1.10:88
+[6515] 1561893830.210861: Sending TCP request to stream 172.16.1.10:88
+[6515] 1561893830.210862: Received answer (1814 bytes) from stream 172.16.1.10:88
+[6515] 1561893830.210863: Terminating TCP connection to stream 172.16.1.10:88
+[6515] 1561893830.210864: Sending DNS URI query for _kerberos.ALPHA.LOCAL.
+[6515] 1561893830.210865: No URI records found
+[6515] 1561893830.210866: Sending DNS SRV query for _kerberos-master._tcp.ALPHA.LOCAL.
+[6515] 1561893830.210867: No SRV records found
+[6515] 1561893830.210868: Response was not from master KDC
+[6515] 1561893830.210869: Decoding FAST response
+[6515] 1561893830.210870: FAST reply key: aes256-cts/CC18
+[6515] 1561893830.210871: TGS reply is for Administrator@ALPHA.LOCAL -> srv-kerberos-kcd@ALPHA.LOCAL with session key rc4-hmac/0C01
+[6515] 1561893830.210872: Got cred; 0/Success
+[6515] 1561893830.210873: Storing Administrator@ALPHA.LOCAL -> srv-kerberos-kcd@ALPHA.LOCAL in FILE:/tmp/krb5cc_1000
+HTTP/iis-host.alpha.local@ALPHA: kvno = 6
+[6515] 1561893830.210874: Retrieving Administrator@ALPHA.LOCAL -> HTTP/iis-host.alpha.local@ALPHA from FILE:/tmp/krb5cc_1000 with result: -1765328243/Matching credential not found (filename: /tmp/krb5cc_1000)
+[6515] 1561893830.210875: Getting credentials srv-kerberos-kcd@ALPHA.LOCAL -> HTTP/iis-host.alpha.local@ALPHA using ccache FILE:/tmp/krb5cc_1000
+[6515] 1561893830.210876: Retrieving srv-kerberos-kcd@ALPHA.LOCAL -> krbtgt/ALPHA@ALPHA from FILE:/tmp/krb5cc_1000 with result: -1765328243/Matching credential not found (filename: /tmp/krb5cc_1000)
+[6515] 1561893830.210877: Retrieving srv-kerberos-kcd@ALPHA.LOCAL -> krbtgt/ALPHA.LOCAL@ALPHA.LOCAL from FILE:/tmp/krb5cc_1000 with result: 0/Success
+[6515] 1561893830.210878: Starting with TGT for client realm: srv-kerberos-kcd@ALPHA.LOCAL -> krbtgt/ALPHA.LOCAL@ALPHA.LOCAL
+[6515] 1561893830.210879: Retrieving srv-kerberos-kcd@ALPHA.LOCAL -> krbtgt/ALPHA@ALPHA from FILE:/tmp/krb5cc_1000 with result: -1765328243/Matching credential not found (filename: /tmp/krb5cc_1000)
+[6515] 1561893830.210880: Requesting TGT krbtgt/ALPHA@ALPHA.LOCAL using TGT krbtgt/ALPHA.LOCAL@ALPHA.LOCAL
+[6515] 1561893830.210881: Generated subkey for TGS request: aes256-cts/6C5E
+[6515] 1561893830.210882: etypes requested in TGS request: aes256-cts, aes128-cts, aes256-sha2, aes128-sha2, des3-cbc-sha1, rc4-hmac, camellia128-cts, camellia256-cts
+[6515] 1561893830.210884: Encoding request body and padata into FAST request
+[6515] 1561893830.210885: Sending request (1728 bytes) to ALPHA.LOCAL
+[6515] 1561893830.210886: Sending DNS URI query for _kerberos.ALPHA.LOCAL.
+[6515] 1561893830.210887: No URI records found
+[6515] 1561893830.210888: Sending DNS SRV query for _kerberos._udp.ALPHA.LOCAL.
+[6515] 1561893830.210889: SRV answer: 0 100 88 "dc11-test.alpha.local."
+[6515] 1561893830.210890: Sending DNS SRV query for _kerberos._tcp.ALPHA.LOCAL.
+[6515] 1561893830.210891: SRV answer: 0 100 88 "dc11-test.alpha.local."
+[6515] 1561893830.210892: Resolving hostname dc11-test.alpha.local.
+[6515] 1561893830.210893: Resolving hostname dc11-test.alpha.local.
+[6515] 1561893830.210894: Initiating TCP connection to stream 172.16.1.10:88
+[6515] 1561893830.210895: Sending TCP request to stream 172.16.1.10:88
+[6515] 1561893830.210896: Received answer (1686 bytes) from stream 172.16.1.10:88
+[6515] 1561893830.210897: Terminating TCP connection to stream 172.16.1.10:88
+[6515] 1561893830.210898: Sending DNS URI query for _kerberos.ALPHA.LOCAL.
+[6515] 1561893830.210899: No URI records found
+[6515] 1561893830.210900: Sending DNS SRV query for _kerberos-master._tcp.ALPHA.LOCAL.
+[6515] 1561893830.210901: No SRV records found
+[6515] 1561893830.210902: Response was not from master KDC
+[6515] 1561893830.210903: Decoding FAST response
+[6515] 1561893830.210904: FAST reply key: aes256-cts/CC3C
+[6515] 1561893830.210905: TGS reply is for srv-kerberos-kcd@ALPHA.LOCAL -> krbtgt/ALPHA@ALPHA.LOCAL with session key aes256-cts/D1D4
+[6515] 1561893830.210906: TGS request result: 0/Success
+[6515] 1561893830.210907: Storing srv-kerberos-kcd@ALPHA.LOCAL -> krbtgt/ALPHA@ALPHA.LOCAL in FILE:/tmp/krb5cc_1000
+[6515] 1561893830.210908: Received TGT for service realm: krbtgt/ALPHA@ALPHA.LOCAL
+[6515] 1561893830.210909: Requesting tickets for HTTP/iis-host.alpha.local@ALPHA, referrals on
+[6515] 1561893830.210910: Generated subkey for TGS request: aes256-cts/B314
+[6515] 1561893830.210911: etypes requested in TGS request: aes256-cts, aes128-cts, aes256-sha2, aes128-sha2, des3-cbc-sha1, rc4-hmac, camellia128-cts, camellia256-cts
+[6515] 1561893830.210913: Encoding request body and padata into FAST request
+[6515] 1561893830.210914: Sending request (4039 bytes) to ALPHA
+[6515] 1561893830.210915: Resolving hostname 172.16.1.10
+[6515] 1561893830.210916: Initiating TCP connection to stream 172.16.1.10:88
+[6515] 1561893830.210917: Sending TCP request to stream 172.16.1.10:88
+[6515] 1561893830.210918: Received answer (1949 bytes) from stream 172.16.1.10:88
+[6515] 1561893830.210919: Terminating TCP connection to stream 172.16.1.10:88
+[6515] 1561893830.210920: Sending DNS URI query for _kerberos.ALPHA.
+[6515] 1561893830.210921: No URI records found
+[6515] 1561893830.210922: Sending DNS SRV query for _kerberos-master._udp.ALPHA.
+[6515] 1561893830.210923: Sending DNS SRV query for _kerberos-master._tcp.ALPHA.
+[6515] 1561893830.210924: No SRV records found
+[6515] 1561893830.210925: Response was not from master KDC
+[6515] 1561893830.210926: Decoding FAST response
+[6515] 1561893830.210927: FAST reply key: aes256-cts/0ABE
+[6515] 1561893830.210928: Reply server HTTP/iis-host.alpha.local@ALPHA.LOCAL differs from requested HTTP/iis-host.alpha.local@ALPHA
+[6515] 1561893830.210929: TGS reply is for Administrator@ALPHA.LOCAL -> HTTP/iis-host.alpha.local@ALPHA.LOCAL with session key aes256-cts/7860
+[6515] 1561893830.210930: TGS request result: 0/Success
+[6515] 1561893830.210931: Received non-TGT referral response (HTTP/iis-host.alpha.local@ALPHA.LOCAL); trying again without referrals
+[6515] 1561893830.210932: Requesting tickets for HTTP/iis-host.alpha.local@ALPHA, referrals off
+[6515] 1561893830.210933: Generated subkey for TGS request: aes256-cts/7785
+[6515] 1561893830.210934: etypes requested in TGS request: aes256-cts, aes128-cts, aes256-sha2, aes128-sha2, des3-cbc-sha1, rc4-hmac, camellia128-cts, camellia256-cts
+[6515] 1561893830.210936: Encoding request body and padata into FAST request
+[6515] 1561893830.210937: Sending request (4039 bytes) to ALPHA
+[6515] 1561893830.210938: Resolving hostname 172.16.1.10
+[6515] 1561893830.210939: Initiating TCP connection to stream 172.16.1.10:88
+[6515] 1561893830.210940: Sending TCP request to stream 172.16.1.10:88
+[6515] 1561893830.210941: Received answer (1949 bytes) from stream 172.16.1.10:88
+[6515] 1561893830.210942: Terminating TCP connection to stream 172.16.1.10:88
+[6515] 1561893830.210943: Sending DNS URI query for _kerberos.ALPHA.
+[6515] 1561893830.210944: No URI records found
+[6515] 1561893830.210945: Sending DNS SRV query for _kerberos-master._udp.ALPHA.
+[6515] 1561893830.210946: Sending DNS SRV query for _kerberos-master._tcp.ALPHA.
+[6515] 1561893830.210947: No SRV records found
+[6515] 1561893830.210948: Response was not from master KDC
+[6515] 1561893830.210949: Decoding FAST response
+[6515] 1561893830.210950: FAST reply key: aes256-cts/629E
+[6515] 1561893830.210951: Reply server HTTP/iis-host.alpha.local@ALPHA.LOCAL differs from requested HTTP/iis-host.alpha.local@ALPHA
+[6515] 1561893830.210952: TGS reply is for Administrator@ALPHA.LOCAL -> HTTP/iis-host.alpha.local@ALPHA.LOCAL with session key aes256-cts/9A4B
+[6515] 1561893830.210953: TGS request result: 0/Success
+[6515] 1561893830.210954: Received creds for desired service HTTP/iis-host.alpha.local@ALPHA.LOCAL
+[6515] 1561893830.210955: Storing Administrator@ALPHA.LOCAL -> HTTP/iis-host.alpha.local@ALPHA in FILE:/tmp/krb5cc_1000
+
+$ klist
+Ticket cache: FILE:/tmp/krb5cc_1000
+Default principal: srv-kerberos-kcd@ALPHA.LOCAL
+
+Valid starting       Expires              Service principal
+06/30/2019 11:23:50  06/30/2019 21:23:50  krbtgt/ALPHA.LOCAL@ALPHA.LOCAL
+        renew until 07/07/2019 11:23:50
+06/30/2019 11:23:50  06/30/2019 21:23:50  srv-kerberos-kcd@ALPHA.LOCAL
+        for client Administrator@ALPHA.LOCAL, renew until 07/07/2019 11:23:50
+06/30/2019 11:23:50  06/30/2019 21:23:50  krbtgt/ALPHA@ALPHA.LOCAL
+        renew until 07/07/2019 11:23:50
+06/30/2019 11:23:50  06/30/2019 21:23:50  HTTP/iis-host.alpha.local@ALPHA
+        for client Administrator@ALPHA.LOCAL, renew until 07/07/2019 11:23:50
+        Ticket server: HTTP/iis-host.alpha.local@ALPHA.LOCAL
