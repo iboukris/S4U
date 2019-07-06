@@ -1,0 +1,2561 @@
+Frame 1: 226 bytes on wire (1808 bits), 226 bytes captured (1808 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.60, Dst: 172.16.1.10
+User Datagram Protocol, Src Port: 35684, Dst Port: 88
+Kerberos
+    as-req
+        pvno: 5
+        msg-type: krb-as-req (10)
+        padata: 2 items
+            PA-DATA Unknown:150
+                padata-type: Unknown (150)
+                    padata-value: <MISSING>
+            PA-DATA PA-REQ-ENC-PA-REP
+                padata-type: PA-REQ-ENC-PA-REP (149)
+                    padata-value: <MISSING>
+        req-body
+            Padding: 0
+            kdc-options: 00800000 (renewable)
+                0... .... = reserved: False
+                .0.. .... = forwardable: False
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                1... .... = renewable: True
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...0 = canonicalize: False
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...0 .... = renewable-ok: False
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            cname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                cname-string: 1 item
+                    CNameString: apache
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ALPHA.LOCAL
+            till: 2019-07-06 21:41:06 (UTC)
+            rtime: 2019-07-12 21:41:06 (UTC)
+            nonce: 143048578
+            etype: 1 item
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+
+Frame 2: 223 bytes on wire (1784 bits), 223 bytes captured (1784 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.10, Dst: 172.16.1.60
+User Datagram Protocol, Src Port: 88, Dst Port: 35684
+Kerberos
+    krb-error
+        pvno: 5
+        msg-type: krb-error (30)
+        stime: 2019-07-05 21:41:06 (UTC)
+        susec: 179741
+        error-code: eRR-PREAUTH-REQUIRED (25)
+        realm: ALPHA.LOCAL
+        sname
+            name-type: kRB5-NT-SRV-INST (2)
+            sname-string: 2 items
+                SNameString: krbtgt
+                SNameString: ALPHA.LOCAL
+        e-data: 304d3016a10302010ba20f040d300b3009a003020117a10204003012a103020113a20b04…
+            PA-DATA PA-ETYPE-INFO
+                padata-type: PA-ETYPE-INFO (11)
+                    padata-value: 300b3009a003020117a1020400
+                        ETYPE-INFO-ENTRY
+                            etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                            salt: <MISSING>
+            PA-DATA PA-ETYPE-INFO2
+                padata-type: PA-ETYPE-INFO2 (19)
+                    padata-value: 30073005a003020117
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+            PA-DATA PA-ENC-TIMESTAMP
+                padata-type: PA-ENC-TIMESTAMP (2)
+                    padata-value: <MISSING>
+            PA-DATA PA-PK-AS-REQ
+                padata-type: PA-PK-AS-REQ (16)
+                    padata-value: <MISSING>
+            PA-DATA PA-PK-AS-REP-OLD
+                padata-type: PA-PK-AS-REP-OLD (15)
+                    padata-value: <MISSING>
+
+Frame 3: 300 bytes on wire (2400 bits), 300 bytes captured (2400 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.60, Dst: 172.16.1.10
+User Datagram Protocol, Src Port: 33806, Dst Port: 88
+Kerberos
+    as-req
+        pvno: 5
+        msg-type: krb-as-req (10)
+        padata: 3 items
+            PA-DATA PA-ENC-TIMESTAMP
+                padata-type: PA-ENC-TIMESTAMP (2)
+                    padata-value: 303da003020117a2360434e3c8670d9b4c60ed500ec3517abd1997b037f09e946a63faa7…
+                        etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                        cipher: e3c8670d9b4c60ed500ec3517abd1997b037f09e946a63faa7caddb21917c55cc7526bfb…
+                            Decrypted keytype 23 usage 1 in frame 3 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)
+                                [Expert Info (Chat/Security): Decrypted keytype 23 usage 1 in frame 3 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                                    [Decrypted keytype 23 usage 1 in frame 3 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                                    [Severity level: Chat]
+                                    [Group: Security]
+                            patimestamp: 2019-07-05 21:41:06 (UTC)
+                            pausec: 179743
+            PA-DATA Unknown:150
+                padata-type: Unknown (150)
+                    padata-value: <MISSING>
+            PA-DATA PA-REQ-ENC-PA-REP
+                padata-type: PA-REQ-ENC-PA-REP (149)
+                    padata-value: <MISSING>
+        req-body
+            Padding: 0
+            kdc-options: 00800000 (renewable)
+                0... .... = reserved: False
+                .0.. .... = forwardable: False
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                1... .... = renewable: True
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...0 = canonicalize: False
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...0 .... = renewable-ok: False
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            cname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                cname-string: 1 item
+                    CNameString: apache
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ALPHA.LOCAL
+            till: 2019-07-06 21:41:06 (UTC)
+            rtime: 2019-07-12 21:41:06 (UTC)
+            nonce: 2145509098
+            etype: 1 item
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+
+Frame 4: 1438 bytes on wire (11504 bits), 1438 bytes captured (11504 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.10, Dst: 172.16.1.60
+User Datagram Protocol, Src Port: 88, Dst Port: 33806
+Kerberos
+    as-rep
+        pvno: 5
+        msg-type: krb-as-rep (11)
+        crealm: ALPHA.LOCAL
+        cname
+            name-type: kRB5-NT-PRINCIPAL (1)
+            cname-string: 1 item
+                CNameString: apache
+        ticket
+            tkt-vno: 5
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ALPHA.LOCAL
+            enc-part
+                etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                kvno: 2
+                cipher: c3434fd56723a106ae0419ba63bae3e8eaec1cf1c58460a7941d046f576d14f26c8b6b25…
+                    Decrypted keytype 18 usage 2 in frame 4 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                        [Expert Info (Chat/Security): Decrypted keytype 18 usage 2 in frame 4 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                            [Decrypted keytype 18 usage 2 in frame 4 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                            [Severity level: Chat]
+                            [Group: Security]
+                    encTicketPart
+                        Padding: 0
+                        flags: 00e10000 (renewable, initial, pre-authent, enc-pa-rep)
+                            0... .... = reserved: False
+                            .0.. .... = forwardable: False
+                            ..0. .... = forwarded: False
+                            ...0 .... = proxiable: False
+                            .... 0... = proxy: False
+                            .... .0.. = may-postdate: False
+                            .... ..0. = postdated: False
+                            .... ...0 = invalid: False
+                            1... .... = renewable: True
+                            .1.. .... = initial: True
+                            ..1. .... = pre-authent: True
+                            ...0 .... = hw-authent: False
+                            .... 0... = transited-policy-checked: False
+                            .... .0.. = ok-as-delegate: False
+                            .... ..0. = unused: False
+                            .... ...1 = enc-pa-rep: True
+                            0... .... = anonymous: False
+                        key
+                            keytype: 23
+                            keyvalue: 711f9a1b13ff39947c4403737ad58922
+                        crealm: ALPHA.LOCAL
+                        cname
+                            name-type: kRB5-NT-PRINCIPAL (1)
+                            cname-string: 1 item
+                                CNameString: apache
+                        transited
+                            tr-type: 0
+                            contents: <MISSING>
+                        authtime: 2019-07-05 21:41:06 (UTC)
+                        starttime: 2019-07-05 21:41:06 (UTC)
+                        endtime: 2019-07-06 07:41:06 (UTC)
+                        renew-till: 2019-07-12 21:41:06 (UTC)
+                        authorization-data: 1 item
+                            AuthorizationData item
+                                ad-type: AD-IF-RELEVANT (1)
+                                ad-data: 308202ba308202b6a00402020080a18202ac048202a8050000000000000001000000c801…
+                                    AuthorizationData item
+                                        ad-type: AD-WIN2K-PAC (128)
+                                        ad-data: 050000000000000001000000c801000058000000000000000a0000001600000020020000…
+                                            Verified Server checksum 16 keytype 18 in frame 4 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                                [Expert Info (Chat/Security): Verified Server checksum 16 keytype 18 in frame 4 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Verified Server checksum 16 keytype 18 in frame 4 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Severity level: Chat]
+                                                    [Group: Security]
+                                            Verified KDC checksum 16 keytype 18 in frame 4 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                                [Expert Info (Chat/Security): Verified KDC checksum 16 keytype 18 in frame 4 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Verified KDC checksum 16 keytype 18 in frame 4 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Severity level: Chat]
+                                                    [Group: Security]
+                                            Num Entries: 5
+                                            Version: 0
+                                            Type: Logon Info (1)
+                                                Size: 456
+                                                Offset: 88
+                                                PAC_LOGON_INFO: 01100800ccccccccb80100000000000000000200d6f053517a33d501ffffffffffffff7f…
+                                                    MES header
+                                                        Version: 1
+                                                        DREP
+                                                            Byte order: Little-endian (1)
+                                                        HDR Length: 8
+                                                        Fill bytes: 0xcccccccc
+                                                        Blob Length: 440
+                                                    PAC_LOGON_INFO:
+                                                        Referent ID: 0x00020000
+                                                        Logon Time: Jul  6, 2019 00:40:52.077999000 IDT
+                                                        Logoff Time: Infinity (absolute time)
+                                                        Kickoff Time: Infinity (absolute time)
+                                                        PWD Last Set: May 10, 2019 14:38:20.752039100 IDT
+                                                        PWD Can Change: May 10, 2019 14:38:20.752039100 IDT
+                                                        PWD Must Change: Infinity (absolute time)
+                                                        Acct Name: apache
+                                                            Length: 12
+                                                            Size: 12
+                                                            Character Array: apache
+                                                                Referent ID: 0x00020004
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 6
+                                                                Acct Name: apache
+                                                        Full Name: apache
+                                                            Length: 12
+                                                            Size: 12
+                                                            Character Array: apache
+                                                                Referent ID: 0x00020008
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 6
+                                                                Full Name: apache
+                                                        Logon Script
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x0002000c
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Profile Path
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020010
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Home Dir
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020014
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Dir Drive
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020018
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Logon Count: 158
+                                                        Bad PW Count: 0
+                                                        User RID: 1122
+                                                        Group RID: 513
+                                                        Num RIDs: 1
+                                                        GROUP_MEMBERSHIP_ARRAY
+                                                            Referent ID: 0x0002001c
+                                                            Max Count: 1
+                                                            GROUP_MEMBERSHIP:
+                                                                Group RID: 513
+                                                                Attributes: 0x00000007
+                                                                    .... .... .... .... .... .... .... .1.. = Enabled: The enabled bit is SET
+                                                                    .... .... .... .... .... .... .... ..1. = Enabled By Default: The ENABLED_BY_DEFAULT bit is SET
+                                                                    .... .... .... .... .... .... .... ...1 = Mandatory: The MANDATORY bit is SET
+                                                        User Flags: 0x00000020
+                                                            .... .... .... .... .... ..0. .... .... = Resource Groups: The resource_groups is NOT set
+                                                            .... .... .... .... .... .... ..1. .... = Extra SIDs: The EXTRA_SIDS bit is SET
+                                                        User Session Key: 00000000000000000000000000000000
+                                                        Server: DC11-TEST
+                                                            Length: 18
+                                                            Size: 20
+                                                            Character Array: DC11-TEST
+                                                                Referent ID: 0x00020020
+                                                                Max Count: 10
+                                                                Offset: 0
+                                                                Actual Count: 9
+                                                                Server: DC11-TEST
+                                                        Domain: ALPHA
+                                                            Length: 10
+                                                            Size: 12
+                                                            Character Array: ALPHA
+                                                                Referent ID: 0x00020024
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 5
+                                                                Domain: ALPHA
+                                                        SID pointer:
+                                                            SID pointer
+                                                                Referent ID: 0x00020028
+                                                                Count: 4
+                                                                Domain SID: S-1-5-21-1762001203-1324844870-79005677  (Domain SID)
+                                                                    Revision: 1
+                                                                    Num Auth: 4
+                                                                    Authority: 5
+                                                                    Subauthorities: 21-1762001203-1324844870-79005677
+                                                        Dummy1 Long: 0x00000000
+                                                        Dummy2 Long: 0x00000000
+                                                        User Account Control: 0x00000210
+                                                            .... .... .... ...0 .... .... .... .... = Don't Require PreAuth: This account REQUIRES preauthentication
+                                                            .... .... .... .... 0... .... .... .... = Use DES Key Only: This account does NOT have to use_des_key_only
+                                                            .... .... .... .... .0.. .... .... .... = Not Delegated: This might have been delegated
+                                                            .... .... .... .... ..0. .... .... .... = Trusted For Delegation: This account is NOT trusted_for_delegation
+                                                            .... .... .... .... ...0 .... .... .... = SmartCard Required: This account does NOT require_smartcard to authenticate
+                                                            .... .... .... .... .... 0... .... .... = Encrypted Text Password Allowed: This account does NOT allow encrypted_text_password
+                                                            .... .... .... .... .... .0.. .... .... = Account Auto Locked: This account is NOT auto_locked
+                                                            .... .... .... .... .... ..1. .... .... = Don't Expire Password: This account DOESN'T_EXPIRE_PASSWORDs
+                                                            .... .... .... .... .... ...0 .... .... = Server Trust Account: This account is NOT a server_trust_account
+                                                            .... .... .... .... .... .... 0... .... = Workstation Trust Account: This account is NOT a workstation_trust_account
+                                                            .... .... .... .... .... .... .0.. .... = Interdomain trust Account: This account is NOT an interdomain_trust_account
+                                                            .... .... .... .... .... .... ..0. .... = MNS Logon Account: This account is NOT a mns_logon_account
+                                                            .... .... .... .... .... .... ...1 .... = Normal Account: This account is a NORMAL_ACCOUNT
+                                                            .... .... .... .... .... .... .... 0... = Temp Duplicate Account: This account is NOT a temp_duplicate_account
+                                                            .... .... .... .... .... .... .... .0.. = Password Not Required: This account REQUIRES a password
+                                                            .... .... .... .... .... .... .... ..0. = Home Directory Required: This account does NOT require_home_directory
+                                                            .... .... .... .... .... .... .... ...0 = Account Disabled: This account is NOT disabled
+                                                        Dummy4 Long: 0x00000000
+                                                        Dummy5 Long: 0x00000000
+                                                        Dummy6 Long: 0x00000000
+                                                        Dummy7 Long: 0x00000000
+                                                        Dummy8 Long: 0x00000000
+                                                        Dummy9 Long: 0x00000000
+                                                        Dummy10 Long: 0x00000000
+                                                        Num Extra SID: 1
+                                                        SID_AND_ATTRIBUTES_ARRAY:
+                                                            Referent ID: 0x0002002c
+                                                            SID_AND_ATTRIBUTES array:
+                                                                Max Count: 1
+                                                                SID_AND_ATTRIBUTES:
+                                                                    SID pointer:
+                                                                        SID pointer
+                                                                            Referent ID: 0x00020030
+                                                                            Count: 1
+                                                                            Domain SID: S-1-18-1  ()
+                                                                                Revision: 1
+                                                                                Num Auth: 1
+                                                                                Authority: 18
+                                                                                Subauthorities: 1
+                                                                    Attributes: 0x00000007
+                                                        SID pointer:
+                                                            NULL Pointer: SID pointer
+                                                        ResourceGroup count: 0
+                                                        NULL Pointer: ResourceGroupIDs
+                                            Type: Client Info Type (10)
+                                                Size: 22
+                                                Offset: 544
+                                                PAC_CLIENT_INFO_TYPE: 0045a0597a33d5010c00610070006100630068006500
+                                                    ClientID: Jul  6, 2019 00:41:06.000000000 IDT
+                                                    Name Length: 12
+                                                    Name: apache
+                                            Type: UPN DNS Info (12)
+                                                Size: 80
+                                                Offset: 568
+                                                UPN_DNS_INFO: 24001000160038000000000000000000610070006100630068006500400061006c007000…
+                                                    UPN Len: 36
+                                                    UPN Offset: 16
+                                                    DNS Len: 22
+                                                    DNS Offset: 56
+                                                    Flags: 0x00000000
+                                                    UPN Name: apache@alpha.local
+                                                    DNS Name: ALPHA.LOCAL
+                                            Type: Server Checksum (6)
+                                                Size: 16
+                                                Offset: 648
+                                                PAC_SERVER_CHECKSUM: 100000002e857f2745fa277144de87b3
+                                                    Type: 16
+                                                    Signature: 2e857f2745fa277144de87b3
+                                            Type: Privsvr Checksum (7)
+                                                Size: 16
+                                                Offset: 664
+                                                PAC_PRIVSVR_CHECKSUM: 100000004dc1e4c48655b7073797fd41
+                                                    Type: 16
+                                                    Signature: 4dc1e4c48655b7073797fd41
+        enc-part
+            etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+            kvno: 2
+            cipher: 8e264fbb11bf10072e2d3d41272bb18948dfc41af6e8839739ebe413f44789a3732c1943…
+                Decrypted keytype 23 usage 3 in frame 4 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)
+                    [Expert Info (Chat/Security): Decrypted keytype 23 usage 3 in frame 4 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                        [Decrypted keytype 23 usage 3 in frame 4 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                        [Severity level: Chat]
+                        [Group: Security]
+                encASRepPart
+                    key
+                        keytype: 23
+                        keyvalue: 711f9a1b13ff39947c4403737ad58922
+                    last-req: 1 item
+                        LastReq item
+                            lr-type: lR-NONE (0)
+                            lr-value: 2019-07-05 21:41:06 (UTC)
+                    nonce: 2145509098
+                    key-expiration: 2037-09-14 02:48:05 (UTC)
+                    Padding: 0
+                    flags: 00e10000 (renewable, initial, pre-authent, enc-pa-rep)
+                        0... .... = reserved: False
+                        .0.. .... = forwardable: False
+                        ..0. .... = forwarded: False
+                        ...0 .... = proxiable: False
+                        .... 0... = proxy: False
+                        .... .0.. = may-postdate: False
+                        .... ..0. = postdated: False
+                        .... ...0 = invalid: False
+                        1... .... = renewable: True
+                        .1.. .... = initial: True
+                        ..1. .... = pre-authent: True
+                        ...0 .... = hw-authent: False
+                        .... 0... = transited-policy-checked: False
+                        .... .0.. = ok-as-delegate: False
+                        .... ..0. = unused: False
+                        .... ...1 = enc-pa-rep: True
+                        0... .... = anonymous: False
+                    authtime: 2019-07-05 21:41:06 (UTC)
+                    starttime: 2019-07-05 21:41:06 (UTC)
+                    endtime: 2019-07-06 07:41:06 (UTC)
+                    renew-till: 2019-07-12 21:41:06 (UTC)
+                    srealm: ALPHA.LOCAL
+                    sname
+                        name-type: kRB5-NT-SRV-INST (2)
+                        sname-string: 2 items
+                            SNameString: krbtgt
+                            SNameString: ALPHA.LOCAL
+                    encrypted-pa-data: 1 item
+                        PA-DATA PA-REQ-ENC-PA-REP
+                            padata-type: PA-REQ-ENC-PA-REP (149)
+                                padata-value: 301aa0040202ff76a11204103a7750d6be19dc8b3a8de005e78486c9
+                                    cksumtype: cKSUMTYPE-HMAC-MD5 (-138)
+                                    checksum: 3a7750d6be19dc8b3a8de005e78486c9
+
+Frame 6: 191 bytes on wire (1528 bits), 191 bytes captured (1528 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.60, Dst: 172.16.1.10
+Transmission Control Protocol, Src Port: 59030, Dst Port: 88, Seq: 1461, Ack: 1, Len: 135
+[2 Reassembled TCP Segments (1595 bytes): #5(1460), #6(135)]
+Kerberos
+    Record Mark: 1591 bytes
+        0... .... .... .... .... .... .... .... = Reserved: Not set
+        .000 0000 0000 0000 0000 0110 0011 0111 = Record Length: 1591
+    tgs-req
+        pvno: 5
+        msg-type: krb-tgs-req (12)
+        padata: 3 items
+            PA-DATA PA-TGS-REQ
+                padata-type: PA-TGS-REQ (1)
+                    padata-value: 6e8204bd308204b9a003020105a10302010ea20703050000000000a38203f6618203f230…
+                        ap-req
+                            pvno: 5
+                            msg-type: krb-ap-req (14)
+                            Padding: 0
+                            ap-options: 00000000
+                                0... .... = reserved: False
+                                .0.. .... = use-session-key: False
+                                ..0. .... = mutual-required: False
+                            ticket
+                                tkt-vno: 5
+                                realm: ALPHA.LOCAL
+                                sname
+                                    name-type: kRB5-NT-SRV-INST (2)
+                                    sname-string: 2 items
+                                        SNameString: krbtgt
+                                        SNameString: ALPHA.LOCAL
+                                enc-part
+                                    etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                                    kvno: 2
+                                    cipher: c3434fd56723a106ae0419ba63bae3e8eaec1cf1c58460a7941d046f576d14f26c8b6b25…
+                                        Decrypted keytype 18 usage 2 in frame 6 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                            [Expert Info (Chat/Security): Decrypted keytype 18 usage 2 in frame 6 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                [Decrypted keytype 18 usage 2 in frame 6 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                [Severity level: Chat]
+                                                [Group: Security]
+                                        encTicketPart
+                                            Padding: 0
+                                            flags: 00e10000 (renewable, initial, pre-authent, enc-pa-rep)
+                                                0... .... = reserved: False
+                                                .0.. .... = forwardable: False
+                                                ..0. .... = forwarded: False
+                                                ...0 .... = proxiable: False
+                                                .... 0... = proxy: False
+                                                .... .0.. = may-postdate: False
+                                                .... ..0. = postdated: False
+                                                .... ...0 = invalid: False
+                                                1... .... = renewable: True
+                                                .1.. .... = initial: True
+                                                ..1. .... = pre-authent: True
+                                                ...0 .... = hw-authent: False
+                                                .... 0... = transited-policy-checked: False
+                                                .... .0.. = ok-as-delegate: False
+                                                .... ..0. = unused: False
+                                                .... ...1 = enc-pa-rep: True
+                                                0... .... = anonymous: False
+                                            key
+                                                keytype: 23
+                                                keyvalue: 711f9a1b13ff39947c4403737ad58922
+                                            crealm: ALPHA.LOCAL
+                                            cname
+                                                name-type: kRB5-NT-PRINCIPAL (1)
+                                                cname-string: 1 item
+                                                    CNameString: apache
+                                            transited
+                                                tr-type: 0
+                                                contents: <MISSING>
+                                            authtime: 2019-07-05 21:41:06 (UTC)
+                                            starttime: 2019-07-05 21:41:06 (UTC)
+                                            endtime: 2019-07-06 07:41:06 (UTC)
+                                            renew-till: 2019-07-12 21:41:06 (UTC)
+                                            authorization-data: 1 item
+                                                AuthorizationData item
+                                                    ad-type: AD-IF-RELEVANT (1)
+                                                    ad-data: 308202ba308202b6a00402020080a18202ac048202a8050000000000000001000000c801…
+                                                        AuthorizationData item
+                                                            ad-type: AD-WIN2K-PAC (128)
+                                                            ad-data: 050000000000000001000000c801000058000000000000000a0000001600000020020000…
+                                                                Verified Server checksum 16 keytype 18 in frame 6 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                                                    [Expert Info (Chat/Security): Verified Server checksum 16 keytype 18 in frame 6 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                                        [Verified Server checksum 16 keytype 18 in frame 6 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                                        [Severity level: Chat]
+                                                                        [Group: Security]
+                                                                Verified KDC checksum 16 keytype 18 in frame 6 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                                                    [Expert Info (Chat/Security): Verified KDC checksum 16 keytype 18 in frame 6 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                                        [Verified KDC checksum 16 keytype 18 in frame 6 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                                        [Severity level: Chat]
+                                                                        [Group: Security]
+                                                                Num Entries: 5
+                                                                Version: 0
+                                                                Type: Logon Info (1)
+                                                                    Size: 456
+                                                                    Offset: 88
+                                                                    PAC_LOGON_INFO: 01100800ccccccccb80100000000000000000200d6f053517a33d501ffffffffffffff7f…
+                                                                        MES header
+                                                                            Version: 1
+                                                                            DREP
+                                                                                Byte order: Little-endian (1)
+                                                                            HDR Length: 8
+                                                                            Fill bytes: 0xcccccccc
+                                                                            Blob Length: 440
+                                                                        PAC_LOGON_INFO:
+                                                                            Referent ID: 0x00020000
+                                                                            Logon Time: Jul  6, 2019 00:40:52.077999000 IDT
+                                                                            Logoff Time: Infinity (absolute time)
+                                                                            Kickoff Time: Infinity (absolute time)
+                                                                            PWD Last Set: May 10, 2019 14:38:20.752039100 IDT
+                                                                            PWD Can Change: May 10, 2019 14:38:20.752039100 IDT
+                                                                            PWD Must Change: Infinity (absolute time)
+                                                                            Acct Name: apache
+                                                                                Length: 12
+                                                                                Size: 12
+                                                                                Character Array: apache
+                                                                                    Referent ID: 0x00020004
+                                                                                    Max Count: 6
+                                                                                    Offset: 0
+                                                                                    Actual Count: 6
+                                                                                    Acct Name: apache
+                                                                            Full Name: apache
+                                                                                Length: 12
+                                                                                Size: 12
+                                                                                Character Array: apache
+                                                                                    Referent ID: 0x00020008
+                                                                                    Max Count: 6
+                                                                                    Offset: 0
+                                                                                    Actual Count: 6
+                                                                                    Full Name: apache
+                                                                            Logon Script
+                                                                                Length: 0
+                                                                                Size: 0
+                                                                                Character Array
+                                                                                    Referent ID: 0x0002000c
+                                                                                    Max Count: 0
+                                                                                    Offset: 0
+                                                                                    Actual Count: 0
+                                                                            Profile Path
+                                                                                Length: 0
+                                                                                Size: 0
+                                                                                Character Array
+                                                                                    Referent ID: 0x00020010
+                                                                                    Max Count: 0
+                                                                                    Offset: 0
+                                                                                    Actual Count: 0
+                                                                            Home Dir
+                                                                                Length: 0
+                                                                                Size: 0
+                                                                                Character Array
+                                                                                    Referent ID: 0x00020014
+                                                                                    Max Count: 0
+                                                                                    Offset: 0
+                                                                                    Actual Count: 0
+                                                                            Dir Drive
+                                                                                Length: 0
+                                                                                Size: 0
+                                                                                Character Array
+                                                                                    Referent ID: 0x00020018
+                                                                                    Max Count: 0
+                                                                                    Offset: 0
+                                                                                    Actual Count: 0
+                                                                            Logon Count: 158
+                                                                            Bad PW Count: 0
+                                                                            User RID: 1122
+                                                                            Group RID: 513
+                                                                            Num RIDs: 1
+                                                                            GROUP_MEMBERSHIP_ARRAY
+                                                                                Referent ID: 0x0002001c
+                                                                                Max Count: 1
+                                                                                GROUP_MEMBERSHIP:
+                                                                                    Group RID: 513
+                                                                                    Attributes: 0x00000007
+                                                                                        .... .... .... .... .... .... .... .1.. = Enabled: The enabled bit is SET
+                                                                                        .... .... .... .... .... .... .... ..1. = Enabled By Default: The ENABLED_BY_DEFAULT bit is SET
+                                                                                        .... .... .... .... .... .... .... ...1 = Mandatory: The MANDATORY bit is SET
+                                                                            User Flags: 0x00000020
+                                                                                .... .... .... .... .... ..0. .... .... = Resource Groups: The resource_groups is NOT set
+                                                                                .... .... .... .... .... .... ..1. .... = Extra SIDs: The EXTRA_SIDS bit is SET
+                                                                            User Session Key: 00000000000000000000000000000000
+                                                                            Server: DC11-TEST
+                                                                                Length: 18
+                                                                                Size: 20
+                                                                                Character Array: DC11-TEST
+                                                                                    Referent ID: 0x00020020
+                                                                                    Max Count: 10
+                                                                                    Offset: 0
+                                                                                    Actual Count: 9
+                                                                                    Server: DC11-TEST
+                                                                            Domain: ALPHA
+                                                                                Length: 10
+                                                                                Size: 12
+                                                                                Character Array: ALPHA
+                                                                                    Referent ID: 0x00020024
+                                                                                    Max Count: 6
+                                                                                    Offset: 0
+                                                                                    Actual Count: 5
+                                                                                    Domain: ALPHA
+                                                                            SID pointer:
+                                                                                SID pointer
+                                                                                    Referent ID: 0x00020028
+                                                                                    Count: 4
+                                                                                    Domain SID: S-1-5-21-1762001203-1324844870-79005677  (Domain SID)
+                                                                                        Revision: 1
+                                                                                        Num Auth: 4
+                                                                                        Authority: 5
+                                                                                        Subauthorities: 21-1762001203-1324844870-79005677
+                                                                            Dummy1 Long: 0x00000000
+                                                                            Dummy2 Long: 0x00000000
+                                                                            User Account Control: 0x00000210
+                                                                                .... .... .... ...0 .... .... .... .... = Don't Require PreAuth: This account REQUIRES preauthentication
+                                                                                .... .... .... .... 0... .... .... .... = Use DES Key Only: This account does NOT have to use_des_key_only
+                                                                                .... .... .... .... .0.. .... .... .... = Not Delegated: This might have been delegated
+                                                                                .... .... .... .... ..0. .... .... .... = Trusted For Delegation: This account is NOT trusted_for_delegation
+                                                                                .... .... .... .... ...0 .... .... .... = SmartCard Required: This account does NOT require_smartcard to authenticate
+                                                                                .... .... .... .... .... 0... .... .... = Encrypted Text Password Allowed: This account does NOT allow encrypted_text_password
+                                                                                .... .... .... .... .... .0.. .... .... = Account Auto Locked: This account is NOT auto_locked
+                                                                                .... .... .... .... .... ..1. .... .... = Don't Expire Password: This account DOESN'T_EXPIRE_PASSWORDs
+                                                                                .... .... .... .... .... ...0 .... .... = Server Trust Account: This account is NOT a server_trust_account
+                                                                                .... .... .... .... .... .... 0... .... = Workstation Trust Account: This account is NOT a workstation_trust_account
+                                                                                .... .... .... .... .... .... .0.. .... = Interdomain trust Account: This account is NOT an interdomain_trust_account
+                                                                                .... .... .... .... .... .... ..0. .... = MNS Logon Account: This account is NOT a mns_logon_account
+                                                                                .... .... .... .... .... .... ...1 .... = Normal Account: This account is a NORMAL_ACCOUNT
+                                                                                .... .... .... .... .... .... .... 0... = Temp Duplicate Account: This account is NOT a temp_duplicate_account
+                                                                                .... .... .... .... .... .... .... .0.. = Password Not Required: This account REQUIRES a password
+                                                                                .... .... .... .... .... .... .... ..0. = Home Directory Required: This account does NOT require_home_directory
+                                                                                .... .... .... .... .... .... .... ...0 = Account Disabled: This account is NOT disabled
+                                                                            Dummy4 Long: 0x00000000
+                                                                            Dummy5 Long: 0x00000000
+                                                                            Dummy6 Long: 0x00000000
+                                                                            Dummy7 Long: 0x00000000
+                                                                            Dummy8 Long: 0x00000000
+                                                                            Dummy9 Long: 0x00000000
+                                                                            Dummy10 Long: 0x00000000
+                                                                            Num Extra SID: 1
+                                                                            SID_AND_ATTRIBUTES_ARRAY:
+                                                                                Referent ID: 0x0002002c
+                                                                                SID_AND_ATTRIBUTES array:
+                                                                                    Max Count: 1
+                                                                                    SID_AND_ATTRIBUTES:
+                                                                                        SID pointer:
+                                                                                            SID pointer
+                                                                                                Referent ID: 0x00020030
+                                                                                                Count: 1
+                                                                                                Domain SID: S-1-18-1  ()
+                                                                                                    Revision: 1
+                                                                                                    Num Auth: 1
+                                                                                                    Authority: 18
+                                                                                                    Subauthorities: 1
+                                                                                        Attributes: 0x00000007
+                                                                            SID pointer:
+                                                                                NULL Pointer: SID pointer
+                                                                            ResourceGroup count: 0
+                                                                            NULL Pointer: ResourceGroupIDs
+                                                                Type: Client Info Type (10)
+                                                                    Size: 22
+                                                                    Offset: 544
+                                                                    PAC_CLIENT_INFO_TYPE: 0045a0597a33d5010c00610070006100630068006500
+                                                                        ClientID: Jul  6, 2019 00:41:06.000000000 IDT
+                                                                        Name Length: 12
+                                                                        Name: apache
+                                                                Type: UPN DNS Info (12)
+                                                                    Size: 80
+                                                                    Offset: 568
+                                                                    UPN_DNS_INFO: 24001000160038000000000000000000610070006100630068006500400061006c007000…
+                                                                        UPN Len: 36
+                                                                        UPN Offset: 16
+                                                                        DNS Len: 22
+                                                                        DNS Offset: 56
+                                                                        Flags: 0x00000000
+                                                                        UPN Name: apache@alpha.local
+                                                                        DNS Name: ALPHA.LOCAL
+                                                                Type: Server Checksum (6)
+                                                                    Size: 16
+                                                                    Offset: 648
+                                                                    PAC_SERVER_CHECKSUM: 100000002e857f2745fa277144de87b3
+                                                                        Type: 16
+                                                                        Signature: 2e857f2745fa277144de87b3
+                                                                Type: Privsvr Checksum (7)
+                                                                    Size: 16
+                                                                    Offset: 664
+                                                                    PAC_PRIVSVR_CHECKSUM: 100000004dc1e4c48655b7073797fd41
+                                                                        Type: 16
+                                                                        Signature: 4dc1e4c48655b7073797fd41
+                            authenticator
+                                etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                                cipher: ae07cfa5bd720627ee7179728abc5a9b83df4aedfd66ae6da56f04cf0f2e8c13b6aebb5e…
+                                    Decrypted keytype 23 usage 7 in frame 6 using key learnt from frame 6 (711f9a1b...)
+                                        [Expert Info (Chat/Security): Decrypted keytype 23 usage 7 in frame 6 using key learnt from frame 6 (711f9a1b...)]
+                                            [Decrypted keytype 23 usage 7 in frame 6 using key learnt from frame 6 (711f9a1b...)]
+                                            [Severity level: Chat]
+                                            [Group: Security]
+                                    authenticator
+                                        authenticator-vno: 5
+                                        crealm: ALPHA.LOCAL
+                                        cname
+                                            name-type: kRB5-NT-PRINCIPAL (1)
+                                            cname-string: 1 item
+                                                CNameString: apache
+                                        cksum
+                                            cksumtype: cKSUMTYPE-HMAC-MD5 (-138)
+                                            checksum: 6da2f700fce32fde706741086e5b88b4
+                                        cusec: 820900
+                                        ctime: 2019-07-05 21:41:06 (UTC)
+                                        subkey
+                                            keytype: 23
+                                            keyvalue: 140f8ade5959fcf31bd7e42030481449
+            PA-DATA Unknown:222
+                padata-type: Unknown (222)
+                    padata-value: a081c93081c6a11c301aa0040202ff76a1120410e6c9dd8bd1f8d497a73c24c9587c8631…
+            PA-DATA PA-REQ-ENC-PA-REP
+                padata-type: PA-REQ-ENC-PA-REP (149)
+                    padata-value: <MISSING>
+        req-body
+            Padding: 0
+            kdc-options: 00810000 (renewable, canonicalize)
+                0... .... = reserved: False
+                .0.. .... = forwardable: False
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                1... .... = renewable: True
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...1 = canonicalize: True
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...0 .... = renewable-ok: False
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                sname-string: 2 items
+                    SNameString: HTTP
+                    SNameString: apache.alpha.local
+            till: 2019-07-06 07:41:06 (UTC)
+            nonce: 1679861
+            etype: 1 item
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+
+Frame 7: 1416 bytes on wire (11328 bits), 1416 bytes captured (11328 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.10, Dst: 172.16.1.60
+Transmission Control Protocol, Src Port: 88, Dst Port: 59030, Seq: 1, Ack: 1596, Len: 1360
+Kerberos
+    Record Mark: 1356 bytes
+        0... .... .... .... .... .... .... .... = Reserved: Not set
+        .000 0000 0000 0000 0000 0101 0100 1100 = Record Length: 1356
+    tgs-rep
+        pvno: 5
+        msg-type: krb-tgs-rep (13)
+        crealm: ALPHA.LOCAL
+        cname
+            name-type: kRB5-NT-PRINCIPAL (1)
+            cname-string: 1 item
+                CNameString: apache
+        ticket
+            tkt-vno: 5
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                sname-string: 2 items
+                    SNameString: HTTP
+                    SNameString: apache.alpha.local
+            enc-part
+                etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                kvno: 2
+                cipher: 5ef667b19bf725af1df5a0649c7de39c81ef6b4ba6c5f1bf088a69aad3f64a933ed3b112…
+                    Decrypted keytype 23 usage 2 in frame 7 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)
+                        [Expert Info (Chat/Security): Decrypted keytype 23 usage 2 in frame 7 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                            [Decrypted keytype 23 usage 2 in frame 7 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                            [Severity level: Chat]
+                            [Group: Security]
+                    encTicketPart
+                        Padding: 0
+                        flags: 00a10000 (renewable, pre-authent, enc-pa-rep)
+                            0... .... = reserved: False
+                            .0.. .... = forwardable: False
+                            ..0. .... = forwarded: False
+                            ...0 .... = proxiable: False
+                            .... 0... = proxy: False
+                            .... .0.. = may-postdate: False
+                            .... ..0. = postdated: False
+                            .... ...0 = invalid: False
+                            1... .... = renewable: True
+                            .0.. .... = initial: False
+                            ..1. .... = pre-authent: True
+                            ...0 .... = hw-authent: False
+                            .... 0... = transited-policy-checked: False
+                            .... .0.. = ok-as-delegate: False
+                            .... ..0. = unused: False
+                            .... ...1 = enc-pa-rep: True
+                            0... .... = anonymous: False
+                        key
+                            keytype: 23
+                            keyvalue: bd53c6503ee491155315039045523387
+                        crealm: ALPHA.LOCAL
+                        cname
+                            name-type: kRB5-NT-PRINCIPAL (1)
+                            cname-string: 1 item
+                                CNameString: apache
+                        transited
+                            tr-type: 1
+                            contents: <MISSING>
+                        authtime: 2019-07-05 21:41:06 (UTC)
+                        starttime: 2019-07-05 21:41:06 (UTC)
+                        endtime: 2019-07-06 07:41:06 (UTC)
+                        renew-till: 2019-07-12 21:41:06 (UTC)
+                        authorization-data: 1 item
+                            AuthorizationData item
+                                ad-type: AD-IF-RELEVANT (1)
+                                ad-data: 308202c2308202bea00402020080a18202b4048202b0050000000000000001000000c801…
+                                    AuthorizationData item
+                                        ad-type: AD-WIN2K-PAC (128)
+                                        ad-data: 050000000000000001000000c801000058000000000000000a0000001600000020020000…
+                                            Verified Server checksum -138 keytype 23 in frame 7 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)
+                                                [Expert Info (Chat/Security): Verified Server checksum -138 keytype 23 in frame 7 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                                                    [Verified Server checksum -138 keytype 23 in frame 7 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                                                    [Severity level: Chat]
+                                                    [Group: Security]
+                                            Verified KDC checksum 16 keytype 18 in frame 7 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                                [Expert Info (Chat/Security): Verified KDC checksum 16 keytype 18 in frame 7 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Verified KDC checksum 16 keytype 18 in frame 7 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Severity level: Chat]
+                                                    [Group: Security]
+                                            Num Entries: 5
+                                            Version: 0
+                                            Type: Logon Info (1)
+                                                Size: 456
+                                                Offset: 88
+                                                PAC_LOGON_INFO: 01100800ccccccccb80100000000000000000200d6f053517a33d501ffffffffffffff7f…
+                                                    MES header
+                                                        Version: 1
+                                                        DREP
+                                                            Byte order: Little-endian (1)
+                                                        HDR Length: 8
+                                                        Fill bytes: 0xcccccccc
+                                                        Blob Length: 440
+                                                    PAC_LOGON_INFO:
+                                                        Referent ID: 0x00020000
+                                                        Logon Time: Jul  6, 2019 00:40:52.077999000 IDT
+                                                        Logoff Time: Infinity (absolute time)
+                                                        Kickoff Time: Infinity (absolute time)
+                                                        PWD Last Set: May 10, 2019 14:38:20.752039100 IDT
+                                                        PWD Can Change: May 10, 2019 14:38:20.752039100 IDT
+                                                        PWD Must Change: Infinity (absolute time)
+                                                        Acct Name: apache
+                                                            Length: 12
+                                                            Size: 12
+                                                            Character Array: apache
+                                                                Referent ID: 0x00020004
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 6
+                                                                Acct Name: apache
+                                                        Full Name: apache
+                                                            Length: 12
+                                                            Size: 12
+                                                            Character Array: apache
+                                                                Referent ID: 0x00020008
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 6
+                                                                Full Name: apache
+                                                        Logon Script
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x0002000c
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Profile Path
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020010
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Home Dir
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020014
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Dir Drive
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020018
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Logon Count: 158
+                                                        Bad PW Count: 0
+                                                        User RID: 1122
+                                                        Group RID: 513
+                                                        Num RIDs: 1
+                                                        GROUP_MEMBERSHIP_ARRAY
+                                                            Referent ID: 0x0002001c
+                                                            Max Count: 1
+                                                            GROUP_MEMBERSHIP:
+                                                                Group RID: 513
+                                                                Attributes: 0x00000007
+                                                                    .... .... .... .... .... .... .... .1.. = Enabled: The enabled bit is SET
+                                                                    .... .... .... .... .... .... .... ..1. = Enabled By Default: The ENABLED_BY_DEFAULT bit is SET
+                                                                    .... .... .... .... .... .... .... ...1 = Mandatory: The MANDATORY bit is SET
+                                                        User Flags: 0x00000020
+                                                            .... .... .... .... .... ..0. .... .... = Resource Groups: The resource_groups is NOT set
+                                                            .... .... .... .... .... .... ..1. .... = Extra SIDs: The EXTRA_SIDS bit is SET
+                                                        User Session Key: 00000000000000000000000000000000
+                                                        Server: DC11-TEST
+                                                            Length: 18
+                                                            Size: 20
+                                                            Character Array: DC11-TEST
+                                                                Referent ID: 0x00020020
+                                                                Max Count: 10
+                                                                Offset: 0
+                                                                Actual Count: 9
+                                                                Server: DC11-TEST
+                                                        Domain: ALPHA
+                                                            Length: 10
+                                                            Size: 12
+                                                            Character Array: ALPHA
+                                                                Referent ID: 0x00020024
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 5
+                                                                Domain: ALPHA
+                                                        SID pointer:
+                                                            SID pointer
+                                                                Referent ID: 0x00020028
+                                                                Count: 4
+                                                                Domain SID: S-1-5-21-1762001203-1324844870-79005677  (Domain SID)
+                                                                    Revision: 1
+                                                                    Num Auth: 4
+                                                                    Authority: 5
+                                                                    Subauthorities: 21-1762001203-1324844870-79005677
+                                                        Dummy1 Long: 0x00000000
+                                                        Dummy2 Long: 0x00000000
+                                                        User Account Control: 0x00000210
+                                                            .... .... .... ...0 .... .... .... .... = Don't Require PreAuth: This account REQUIRES preauthentication
+                                                            .... .... .... .... 0... .... .... .... = Use DES Key Only: This account does NOT have to use_des_key_only
+                                                            .... .... .... .... .0.. .... .... .... = Not Delegated: This might have been delegated
+                                                            .... .... .... .... ..0. .... .... .... = Trusted For Delegation: This account is NOT trusted_for_delegation
+                                                            .... .... .... .... ...0 .... .... .... = SmartCard Required: This account does NOT require_smartcard to authenticate
+                                                            .... .... .... .... .... 0... .... .... = Encrypted Text Password Allowed: This account does NOT allow encrypted_text_password
+                                                            .... .... .... .... .... .0.. .... .... = Account Auto Locked: This account is NOT auto_locked
+                                                            .... .... .... .... .... ..1. .... .... = Don't Expire Password: This account DOESN'T_EXPIRE_PASSWORDs
+                                                            .... .... .... .... .... ...0 .... .... = Server Trust Account: This account is NOT a server_trust_account
+                                                            .... .... .... .... .... .... 0... .... = Workstation Trust Account: This account is NOT a workstation_trust_account
+                                                            .... .... .... .... .... .... .0.. .... = Interdomain trust Account: This account is NOT an interdomain_trust_account
+                                                            .... .... .... .... .... .... ..0. .... = MNS Logon Account: This account is NOT a mns_logon_account
+                                                            .... .... .... .... .... .... ...1 .... = Normal Account: This account is a NORMAL_ACCOUNT
+                                                            .... .... .... .... .... .... .... 0... = Temp Duplicate Account: This account is NOT a temp_duplicate_account
+                                                            .... .... .... .... .... .... .... .0.. = Password Not Required: This account REQUIRES a password
+                                                            .... .... .... .... .... .... .... ..0. = Home Directory Required: This account does NOT require_home_directory
+                                                            .... .... .... .... .... .... .... ...0 = Account Disabled: This account is NOT disabled
+                                                        Dummy4 Long: 0x00000000
+                                                        Dummy5 Long: 0x00000000
+                                                        Dummy6 Long: 0x00000000
+                                                        Dummy7 Long: 0x00000000
+                                                        Dummy8 Long: 0x00000000
+                                                        Dummy9 Long: 0x00000000
+                                                        Dummy10 Long: 0x00000000
+                                                        Num Extra SID: 1
+                                                        SID_AND_ATTRIBUTES_ARRAY:
+                                                            Referent ID: 0x0002002c
+                                                            SID_AND_ATTRIBUTES array:
+                                                                Max Count: 1
+                                                                SID_AND_ATTRIBUTES:
+                                                                    SID pointer:
+                                                                        SID pointer
+                                                                            Referent ID: 0x00020030
+                                                                            Count: 1
+                                                                            Domain SID: S-1-18-1  ()
+                                                                                Revision: 1
+                                                                                Num Auth: 1
+                                                                                Authority: 18
+                                                                                Subauthorities: 1
+                                                                    Attributes: 0x00000007
+                                                        SID pointer:
+                                                            NULL Pointer: SID pointer
+                                                        ResourceGroup count: 0
+                                                        NULL Pointer: ResourceGroupIDs
+                                            Type: Client Info Type (10)
+                                                Size: 22
+                                                Offset: 544
+                                                PAC_CLIENT_INFO_TYPE: 0045a0597a33d5010c00610070006100630068006500
+                                                    ClientID: Jul  6, 2019 00:41:06.000000000 IDT
+                                                    Name Length: 12
+                                                    Name: apache
+                                            Type: UPN DNS Info (12)
+                                                Size: 80
+                                                Offset: 568
+                                                UPN_DNS_INFO: 24001000160038000000000000000000610070006100630068006500400061006c007000…
+                                                    UPN Len: 36
+                                                    UPN Offset: 16
+                                                    DNS Len: 22
+                                                    DNS Offset: 56
+                                                    Flags: 0x00000000
+                                                    UPN Name: apache@alpha.local
+                                                    DNS Name: ALPHA.LOCAL
+                                            Type: Server Checksum (6)
+                                                Size: 20
+                                                Offset: 648
+                                                PAC_SERVER_CHECKSUM: 76ffffff810e565f1deb3d3727769cf38e96e9d5
+                                                    Type: -138
+                                                    Signature: 810e565f1deb3d3727769cf38e96e9d5
+                                            Type: Privsvr Checksum (7)
+                                                Size: 16
+                                                Offset: 672
+                                                PAC_PRIVSVR_CHECKSUM: 100000004569823941ab5291e6347153
+                                                    Type: 16
+                                                    Signature: 4569823941ab5291e6347153
+        enc-part
+            etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+            cipher: 834aaddb470f0a3ec71071dd6a4a0c88d02f0a20292585d47904b9b18e457fa4c092acb5…
+                Decrypted keytype 23 usage 9 in frame 7 using key learnt from frame 6 (140f8ade...)
+                    [Expert Info (Chat/Security): Decrypted keytype 23 usage 9 in frame 7 using key learnt from frame 6 (140f8ade...)]
+                        [Decrypted keytype 23 usage 9 in frame 7 using key learnt from frame 6 (140f8ade...)]
+                        [Severity level: Chat]
+                        [Group: Security]
+                encTGSRepPart
+                    key
+                        keytype: 23
+                        keyvalue: bd53c6503ee491155315039045523387
+                    last-req: 1 item
+                        LastReq item
+                            lr-type: lR-NONE (0)
+                            lr-value: 2019-07-05 21:41:06 (UTC)
+                    nonce: 1679861
+                    Padding: 0
+                    flags: 00a10000 (renewable, pre-authent, enc-pa-rep)
+                        0... .... = reserved: False
+                        .0.. .... = forwardable: False
+                        ..0. .... = forwarded: False
+                        ...0 .... = proxiable: False
+                        .... 0... = proxy: False
+                        .... .0.. = may-postdate: False
+                        .... ..0. = postdated: False
+                        .... ...0 = invalid: False
+                        1... .... = renewable: True
+                        .0.. .... = initial: False
+                        ..1. .... = pre-authent: True
+                        ...0 .... = hw-authent: False
+                        .... 0... = transited-policy-checked: False
+                        .... .0.. = ok-as-delegate: False
+                        .... ..0. = unused: False
+                        .... ...1 = enc-pa-rep: True
+                        0... .... = anonymous: False
+                    authtime: 2019-07-05 21:41:06 (UTC)
+                    starttime: 2019-07-05 21:41:06 (UTC)
+                    endtime: 2019-07-06 07:41:06 (UTC)
+                    renew-till: 2019-07-12 21:41:06 (UTC)
+                    srealm: ALPHA.LOCAL
+                    sname
+                        name-type: kRB5-NT-PRINCIPAL (1)
+                        sname-string: 2 items
+                            SNameString: HTTP
+                            SNameString: apache.alpha.local
+                    encrypted-pa-data: 1 item
+                        PA-DATA PA-SUPPORTED-ETYPES
+                            padata-type: PA-SUPPORTED-ETYPES (165)
+                                padata-value: 07000000
+                                    SupportedEnctypes: 0x00000007, des-cbc-crc, des-cbc-md5, rc4-hmac
+                                        .... .... .... .... .... .... .... ...1 = des-cbc-crc: Supported
+                                        .... .... .... .... .... .... .... ..1. = des-cbc-md5: Supported
+                                        .... .... .... .... .... .... .... .1.. = rc4-hmac: Supported
+                                        .... .... .... .... .... .... .... 0... = aes128-cts-hmac-sha1-96: Not supported
+                                        .... .... .... .... .... .... ...0 .... = aes256-cts-hmac-sha1-96: Not supported
+                                        .... .... .... ...0 .... .... .... .... = fast-supported: Not supported
+                                        .... .... .... ..0. .... .... .... .... = compound-identity-supported: Not supported
+                                        .... .... .... .0.. .... .... .... .... = claims-supported: Not supported
+                                        .... .... .... 0... .... .... .... .... = resource-sid-compression-disabled: Not supported
+
+Frame 8: 247 bytes on wire (1976 bits), 247 bytes captured (1976 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.60, Dst: 172.16.1.10
+User Datagram Protocol, Src Port: 33297, Dst Port: 88
+Kerberos
+    as-req
+        pvno: 5
+        msg-type: krb-as-req (10)
+        padata: 2 items
+            PA-DATA Unknown:150
+                padata-type: Unknown (150)
+                    padata-value: <MISSING>
+            PA-DATA PA-REQ-ENC-PA-REP
+                padata-type: PA-REQ-ENC-PA-REP (149)
+                    padata-value: <MISSING>
+        req-body
+            Padding: 0
+            kdc-options: 00800000 (renewable)
+                0... .... = reserved: False
+                .0.. .... = forwardable: False
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                1... .... = renewable: True
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...0 = canonicalize: False
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...0 .... = renewable-ok: False
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            cname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                cname-string: 1 item
+                    CNameString: apache
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ALPHA.LOCAL
+            till: 2019-07-06 21:44:43 (UTC)
+            rtime: 2019-07-12 21:44:43 (UTC)
+            nonce: 767310002
+            etype: 8 items
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA1-96 (17)
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA384-192 (20)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA256-128 (19)
+                ENCTYPE: eTYPE-DES3-CBC-SHA1 (16)
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                ENCTYPE: eTYPE-CAMELLIA128-CTS-CMAC (25)
+                ENCTYPE: eTYPE-CAMELLIA256-CTS-CMAC (26)
+
+Frame 9: 227 bytes on wire (1816 bits), 227 bytes captured (1816 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.10, Dst: 172.16.1.60
+User Datagram Protocol, Src Port: 88, Dst Port: 33297
+Kerberos
+    krb-error
+        pvno: 5
+        msg-type: krb-error (30)
+        stime: 2019-07-05 21:44:43 (UTC)
+        susec: 955565
+        error-code: eRR-PREAUTH-REQUIRED (25)
+        realm: ALPHA.LOCAL
+        sname
+            name-type: kRB5-NT-SRV-INST (2)
+            sname-string: 2 items
+                SNameString: krbtgt
+                SNameString: ALPHA.LOCAL
+        e-data: 3051302ea103020113a22704253023301aa003020112a1131b11414c5048412e4c4f4341…
+            PA-DATA PA-ETYPE-INFO2
+                padata-type: PA-ETYPE-INFO2 (19)
+                    padata-value: 3023301aa003020112a1131b11414c5048412e4c4f43414c6170616368653005a0030201…
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                            salt: ALPHA.LOCALapache
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+            PA-DATA PA-ENC-TIMESTAMP
+                padata-type: PA-ENC-TIMESTAMP (2)
+                    padata-value: <MISSING>
+            PA-DATA PA-PK-AS-REQ
+                padata-type: PA-PK-AS-REQ (16)
+                    padata-value: <MISSING>
+            PA-DATA PA-PK-AS-REP-OLD
+                padata-type: PA-PK-AS-REP-OLD (15)
+                    padata-value: <MISSING>
+
+Frame 10: 327 bytes on wire (2616 bits), 327 bytes captured (2616 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.60, Dst: 172.16.1.10
+User Datagram Protocol, Src Port: 32797, Dst Port: 88
+Kerberos
+    as-req
+        pvno: 5
+        msg-type: krb-as-req (10)
+        padata: 3 items
+            PA-DATA PA-ENC-TIMESTAMP
+                padata-type: PA-ENC-TIMESTAMP (2)
+                    padata-value: 3041a003020112a23a04381999d0f613a0b974fdc74fd946a6d54f955eb02f3fa4e0c89d…
+                        etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                        cipher: 1999d0f613a0b974fdc74fd946a6d54f955eb02f3fa4e0c89dd10919f800f0c79f501f0a…
+                            Decrypted keytype 18 usage 1 in frame 10 using keytab principal apache@ALPHA.LOCAL (8bb6f3f0...)
+                                [Expert Info (Chat/Security): Decrypted keytype 18 usage 1 in frame 10 using keytab principal apache@ALPHA.LOCAL (8bb6f3f0...)]
+                                    [Decrypted keytype 18 usage 1 in frame 10 using keytab principal apache@ALPHA.LOCAL (8bb6f3f0...)]
+                                    [Severity level: Chat]
+                                    [Group: Security]
+                            patimestamp: 2019-07-05 21:44:43 (UTC)
+                            pausec: 955567
+            PA-DATA Unknown:150
+                padata-type: Unknown (150)
+                    padata-value: <MISSING>
+            PA-DATA PA-REQ-ENC-PA-REP
+                padata-type: PA-REQ-ENC-PA-REP (149)
+                    padata-value: <MISSING>
+        req-body
+            Padding: 0
+            kdc-options: 00800000 (renewable)
+                0... .... = reserved: False
+                .0.. .... = forwardable: False
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                1... .... = renewable: True
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...0 = canonicalize: False
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...0 .... = renewable-ok: False
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            cname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                cname-string: 1 item
+                    CNameString: apache
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ALPHA.LOCAL
+            till: 2019-07-06 21:44:43 (UTC)
+            rtime: 2019-07-12 21:44:43 (UTC)
+            nonce: 2028352791
+            etype: 8 items
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA1-96 (17)
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA384-192 (20)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA256-128 (19)
+                ENCTYPE: eTYPE-DES3-CBC-SHA1 (16)
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                ENCTYPE: eTYPE-CAMELLIA128-CTS-CMAC (25)
+                ENCTYPE: eTYPE-CAMELLIA256-CTS-CMAC (26)
+
+Frame 11: 138 bytes on wire (1104 bits), 138 bytes captured (1104 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.10, Dst: 172.16.1.60
+User Datagram Protocol, Src Port: 88, Dst Port: 32797
+Kerberos
+    krb-error
+        pvno: 5
+        msg-type: krb-error (30)
+        stime: 2019-07-05 21:44:43 (UTC)
+        susec: 971332
+        error-code: eRR-RESPONSE-TOO-BIG (52)
+        realm: ALPHA.LOCAL
+        sname
+            name-type: kRB5-NT-SRV-INST (2)
+            sname-string: 2 items
+                SNameString: krbtgt
+                SNameString: ALPHA.LOCAL
+
+Frame 12: 343 bytes on wire (2744 bits), 343 bytes captured (2744 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.60, Dst: 172.16.1.10
+Transmission Control Protocol, Src Port: 59032, Dst Port: 88, Seq: 1, Ack: 1, Len: 287
+Kerberos
+    Record Mark: 283 bytes
+        0... .... .... .... .... .... .... .... = Reserved: Not set
+        .000 0000 0000 0000 0000 0001 0001 1011 = Record Length: 283
+    as-req
+        pvno: 5
+        msg-type: krb-as-req (10)
+        padata: 3 items
+            PA-DATA PA-ENC-TIMESTAMP
+                padata-type: PA-ENC-TIMESTAMP (2)
+                    padata-value: 3041a003020112a23a04381999d0f613a0b974fdc74fd946a6d54f955eb02f3fa4e0c89d…
+                        etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                        cipher: 1999d0f613a0b974fdc74fd946a6d54f955eb02f3fa4e0c89dd10919f800f0c79f501f0a…
+                            Decrypted keytype 18 usage 1 in frame 12 using keytab principal apache@ALPHA.LOCAL (8bb6f3f0...)
+                                [Expert Info (Chat/Security): Decrypted keytype 18 usage 1 in frame 12 using keytab principal apache@ALPHA.LOCAL (8bb6f3f0...)]
+                                    [Decrypted keytype 18 usage 1 in frame 12 using keytab principal apache@ALPHA.LOCAL (8bb6f3f0...)]
+                                    [Severity level: Chat]
+                                    [Group: Security]
+                            patimestamp: 2019-07-05 21:44:43 (UTC)
+                            pausec: 955567
+            PA-DATA Unknown:150
+                padata-type: Unknown (150)
+                    padata-value: <MISSING>
+            PA-DATA PA-REQ-ENC-PA-REP
+                padata-type: PA-REQ-ENC-PA-REP (149)
+                    padata-value: <MISSING>
+        req-body
+            Padding: 0
+            kdc-options: 00800000 (renewable)
+                0... .... = reserved: False
+                .0.. .... = forwardable: False
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                1... .... = renewable: True
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...0 = canonicalize: False
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...0 .... = renewable-ok: False
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            cname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                cname-string: 1 item
+                    CNameString: apache
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ALPHA.LOCAL
+            till: 2019-07-06 21:44:43 (UTC)
+            rtime: 2019-07-12 21:44:43 (UTC)
+            nonce: 2028352791
+            etype: 8 items
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA1-96 (17)
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA384-192 (20)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA256-128 (19)
+                ENCTYPE: eTYPE-DES3-CBC-SHA1 (16)
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                ENCTYPE: eTYPE-CAMELLIA128-CTS-CMAC (25)
+                ENCTYPE: eTYPE-CAMELLIA256-CTS-CMAC (26)
+
+Frame 14: 70 bytes on wire (560 bits), 70 bytes captured (560 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.10, Dst: 172.16.1.60
+Transmission Control Protocol, Src Port: 88, Dst Port: 59032, Seq: 1461, Ack: 288, Len: 14
+[2 Reassembled TCP Segments (1474 bytes): #13(1460), #14(14)]
+Kerberos
+    Record Mark: 1470 bytes
+        0... .... .... .... .... .... .... .... = Reserved: Not set
+        .000 0000 0000 0000 0000 0101 1011 1110 = Record Length: 1470
+    as-rep
+        pvno: 5
+        msg-type: krb-as-rep (11)
+        padata: 1 item
+            PA-DATA PA-ETYPE-INFO2
+                padata-type: PA-ETYPE-INFO2 (19)
+                    padata-value: 301c301aa003020112a1131b11414c5048412e4c4f43414c617061636865
+                        ETYPE-INFO2-ENTRY
+                            etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                            salt: ALPHA.LOCALapache
+        crealm: ALPHA.LOCAL
+        cname
+            name-type: kRB5-NT-PRINCIPAL (1)
+            cname-string: 1 item
+                CNameString: apache
+        ticket
+            tkt-vno: 5
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-SRV-INST (2)
+                sname-string: 2 items
+                    SNameString: krbtgt
+                    SNameString: ALPHA.LOCAL
+            enc-part
+                etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                kvno: 2
+                cipher: 6261819a0f09f3c6a2ad425837081af35c0e2875b9a9048761671a1da6b62290be7581f6…
+                    Decrypted keytype 18 usage 2 in frame 14 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                        [Expert Info (Chat/Security): Decrypted keytype 18 usage 2 in frame 14 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                            [Decrypted keytype 18 usage 2 in frame 14 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                            [Severity level: Chat]
+                            [Group: Security]
+                    encTicketPart
+                        Padding: 0
+                        flags: 00e10000 (renewable, initial, pre-authent, enc-pa-rep)
+                            0... .... = reserved: False
+                            .0.. .... = forwardable: False
+                            ..0. .... = forwarded: False
+                            ...0 .... = proxiable: False
+                            .... 0... = proxy: False
+                            .... .0.. = may-postdate: False
+                            .... ..0. = postdated: False
+                            .... ...0 = invalid: False
+                            1... .... = renewable: True
+                            .1.. .... = initial: True
+                            ..1. .... = pre-authent: True
+                            ...0 .... = hw-authent: False
+                            .... 0... = transited-policy-checked: False
+                            .... .0.. = ok-as-delegate: False
+                            .... ..0. = unused: False
+                            .... ...1 = enc-pa-rep: True
+                            0... .... = anonymous: False
+                        key
+                            keytype: 18
+                            keyvalue: d9d2564ee1bbbb45f1fb8473e028b7d9e75e201a8954a39411c713df55ab8a05
+                        crealm: ALPHA.LOCAL
+                        cname
+                            name-type: kRB5-NT-PRINCIPAL (1)
+                            cname-string: 1 item
+                                CNameString: apache
+                        transited
+                            tr-type: 0
+                            contents: <MISSING>
+                        authtime: 2019-07-05 21:44:43 (UTC)
+                        starttime: 2019-07-05 21:44:43 (UTC)
+                        endtime: 2019-07-06 07:44:43 (UTC)
+                        renew-till: 2019-07-12 21:44:43 (UTC)
+                        authorization-data: 1 item
+                            AuthorizationData item
+                                ad-type: AD-IF-RELEVANT (1)
+                                ad-data: 308202ba308202b6a00402020080a18202ac048202a8050000000000000001000000c801…
+                                    AuthorizationData item
+                                        ad-type: AD-WIN2K-PAC (128)
+                                        ad-data: 050000000000000001000000c801000058000000000000000a0000001600000020020000…
+                                            Verified Server checksum 16 keytype 18 in frame 14 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                                [Expert Info (Chat/Security): Verified Server checksum 16 keytype 18 in frame 14 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Verified Server checksum 16 keytype 18 in frame 14 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Severity level: Chat]
+                                                    [Group: Security]
+                                            Verified KDC checksum 16 keytype 18 in frame 14 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                                [Expert Info (Chat/Security): Verified KDC checksum 16 keytype 18 in frame 14 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Verified KDC checksum 16 keytype 18 in frame 14 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Severity level: Chat]
+                                                    [Group: Security]
+                                            Num Entries: 5
+                                            Version: 0
+                                            Type: Logon Info (1)
+                                                Size: 456
+                                                Offset: 88
+                                                PAC_LOGON_INFO: 01100800ccccccccb801000000000000000002002cf853db7a33d501ffffffffffffff7f…
+                                                    MES header
+                                                        Version: 1
+                                                        DREP
+                                                            Byte order: Little-endian (1)
+                                                        HDR Length: 8
+                                                        Fill bytes: 0xcccccccc
+                                                        Blob Length: 440
+                                                    PAC_LOGON_INFO:
+                                                        Referent ID: 0x00020000
+                                                        Logon Time: Jul  6, 2019 00:44:43.603767600 IDT
+                                                        Logoff Time: Infinity (absolute time)
+                                                        Kickoff Time: Infinity (absolute time)
+                                                        PWD Last Set: May 10, 2019 14:38:20.752039100 IDT
+                                                        PWD Can Change: May 10, 2019 14:38:20.752039100 IDT
+                                                        PWD Must Change: Infinity (absolute time)
+                                                        Acct Name: apache
+                                                            Length: 12
+                                                            Size: 12
+                                                            Character Array: apache
+                                                                Referent ID: 0x00020004
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 6
+                                                                Acct Name: apache
+                                                        Full Name: apache
+                                                            Length: 12
+                                                            Size: 12
+                                                            Character Array: apache
+                                                                Referent ID: 0x00020008
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 6
+                                                                Full Name: apache
+                                                        Logon Script
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x0002000c
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Profile Path
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020010
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Home Dir
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020014
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Dir Drive
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020018
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Logon Count: 160
+                                                        Bad PW Count: 0
+                                                        User RID: 1122
+                                                        Group RID: 513
+                                                        Num RIDs: 1
+                                                        GROUP_MEMBERSHIP_ARRAY
+                                                            Referent ID: 0x0002001c
+                                                            Max Count: 1
+                                                            GROUP_MEMBERSHIP:
+                                                                Group RID: 513
+                                                                Attributes: 0x00000007
+                                                                    .... .... .... .... .... .... .... .1.. = Enabled: The enabled bit is SET
+                                                                    .... .... .... .... .... .... .... ..1. = Enabled By Default: The ENABLED_BY_DEFAULT bit is SET
+                                                                    .... .... .... .... .... .... .... ...1 = Mandatory: The MANDATORY bit is SET
+                                                        User Flags: 0x00000020
+                                                            .... .... .... .... .... ..0. .... .... = Resource Groups: The resource_groups is NOT set
+                                                            .... .... .... .... .... .... ..1. .... = Extra SIDs: The EXTRA_SIDS bit is SET
+                                                        User Session Key: 00000000000000000000000000000000
+                                                        Server: DC11-TEST
+                                                            Length: 18
+                                                            Size: 20
+                                                            Character Array: DC11-TEST
+                                                                Referent ID: 0x00020020
+                                                                Max Count: 10
+                                                                Offset: 0
+                                                                Actual Count: 9
+                                                                Server: DC11-TEST
+                                                        Domain: ALPHA
+                                                            Length: 10
+                                                            Size: 12
+                                                            Character Array: ALPHA
+                                                                Referent ID: 0x00020024
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 5
+                                                                Domain: ALPHA
+                                                        SID pointer:
+                                                            SID pointer
+                                                                Referent ID: 0x00020028
+                                                                Count: 4
+                                                                Domain SID: S-1-5-21-1762001203-1324844870-79005677  (Domain SID)
+                                                                    Revision: 1
+                                                                    Num Auth: 4
+                                                                    Authority: 5
+                                                                    Subauthorities: 21-1762001203-1324844870-79005677
+                                                        Dummy1 Long: 0x00000000
+                                                        Dummy2 Long: 0x00000000
+                                                        User Account Control: 0x00000210
+                                                            .... .... .... ...0 .... .... .... .... = Don't Require PreAuth: This account REQUIRES preauthentication
+                                                            .... .... .... .... 0... .... .... .... = Use DES Key Only: This account does NOT have to use_des_key_only
+                                                            .... .... .... .... .0.. .... .... .... = Not Delegated: This might have been delegated
+                                                            .... .... .... .... ..0. .... .... .... = Trusted For Delegation: This account is NOT trusted_for_delegation
+                                                            .... .... .... .... ...0 .... .... .... = SmartCard Required: This account does NOT require_smartcard to authenticate
+                                                            .... .... .... .... .... 0... .... .... = Encrypted Text Password Allowed: This account does NOT allow encrypted_text_password
+                                                            .... .... .... .... .... .0.. .... .... = Account Auto Locked: This account is NOT auto_locked
+                                                            .... .... .... .... .... ..1. .... .... = Don't Expire Password: This account DOESN'T_EXPIRE_PASSWORDs
+                                                            .... .... .... .... .... ...0 .... .... = Server Trust Account: This account is NOT a server_trust_account
+                                                            .... .... .... .... .... .... 0... .... = Workstation Trust Account: This account is NOT a workstation_trust_account
+                                                            .... .... .... .... .... .... .0.. .... = Interdomain trust Account: This account is NOT an interdomain_trust_account
+                                                            .... .... .... .... .... .... ..0. .... = MNS Logon Account: This account is NOT a mns_logon_account
+                                                            .... .... .... .... .... .... ...1 .... = Normal Account: This account is a NORMAL_ACCOUNT
+                                                            .... .... .... .... .... .... .... 0... = Temp Duplicate Account: This account is NOT a temp_duplicate_account
+                                                            .... .... .... .... .... .... .... .0.. = Password Not Required: This account REQUIRES a password
+                                                            .... .... .... .... .... .... .... ..0. = Home Directory Required: This account does NOT require_home_directory
+                                                            .... .... .... .... .... .... .... ...0 = Account Disabled: This account is NOT disabled
+                                                        Dummy4 Long: 0x00000000
+                                                        Dummy5 Long: 0x00000000
+                                                        Dummy6 Long: 0x00000000
+                                                        Dummy7 Long: 0x00000000
+                                                        Dummy8 Long: 0x00000000
+                                                        Dummy9 Long: 0x00000000
+                                                        Dummy10 Long: 0x00000000
+                                                        Num Extra SID: 1
+                                                        SID_AND_ATTRIBUTES_ARRAY:
+                                                            Referent ID: 0x0002002c
+                                                            SID_AND_ATTRIBUTES array:
+                                                                Max Count: 1
+                                                                SID_AND_ATTRIBUTES:
+                                                                    SID pointer:
+                                                                        SID pointer
+                                                                            Referent ID: 0x00020030
+                                                                            Count: 1
+                                                                            Domain SID: S-1-18-1  ()
+                                                                                Revision: 1
+                                                                                Num Auth: 1
+                                                                                Authority: 18
+                                                                                Subauthorities: 1
+                                                                    Attributes: 0x00000007
+                                                        SID pointer:
+                                                            NULL Pointer: SID pointer
+                                                        ResourceGroup count: 0
+                                                        NULL Pointer: ResourceGroupIDs
+                                            Type: Client Info Type (10)
+                                                Size: 22
+                                                Offset: 544
+                                                PAC_CLIENT_INFO_TYPE: 80d7f7da7a33d5010c00610070006100630068006500
+                                                    ClientID: Jul  6, 2019 00:44:43.000000000 IDT
+                                                    Name Length: 12
+                                                    Name: apache
+                                            Type: UPN DNS Info (12)
+                                                Size: 80
+                                                Offset: 568
+                                                UPN_DNS_INFO: 24001000160038000000000000000000610070006100630068006500400061006c007000…
+                                                    UPN Len: 36
+                                                    UPN Offset: 16
+                                                    DNS Len: 22
+                                                    DNS Offset: 56
+                                                    Flags: 0x00000000
+                                                    UPN Name: apache@alpha.local
+                                                    DNS Name: ALPHA.LOCAL
+                                            Type: Server Checksum (6)
+                                                Size: 16
+                                                Offset: 648
+                                                PAC_SERVER_CHECKSUM: 100000005bede1f37a0514dde773e3b1
+                                                    Type: 16
+                                                    Signature: 5bede1f37a0514dde773e3b1
+                                            Type: Privsvr Checksum (7)
+                                                Size: 16
+                                                Offset: 664
+                                                PAC_PRIVSVR_CHECKSUM: 10000000cf97ae2a5279e810ea6079de
+                                                    Type: 16
+                                                    Signature: cf97ae2a5279e810ea6079de
+        enc-part
+            etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+            kvno: 2
+            cipher: e84dc7bdc3b3fadb75ecff825da18f004664cc68fd3d2cb2b13d13e73af651597373af52…
+                Decrypted keytype 18 usage 3 in frame 14 using keytab principal apache@ALPHA.LOCAL (8bb6f3f0...)
+                    [Expert Info (Chat/Security): Decrypted keytype 18 usage 3 in frame 14 using keytab principal apache@ALPHA.LOCAL (8bb6f3f0...)]
+                        [Decrypted keytype 18 usage 3 in frame 14 using keytab principal apache@ALPHA.LOCAL (8bb6f3f0...)]
+                        [Severity level: Chat]
+                        [Group: Security]
+                encASRepPart
+                    key
+                        keytype: 18
+                        keyvalue: d9d2564ee1bbbb45f1fb8473e028b7d9e75e201a8954a39411c713df55ab8a05
+                    last-req: 1 item
+                        LastReq item
+                            lr-type: lR-NONE (0)
+                            lr-value: 2019-07-05 21:44:43 (UTC)
+                    nonce: 2028352791
+                    key-expiration: 2037-09-14 02:48:05 (UTC)
+                    Padding: 0
+                    flags: 00e10000 (renewable, initial, pre-authent, enc-pa-rep)
+                        0... .... = reserved: False
+                        .0.. .... = forwardable: False
+                        ..0. .... = forwarded: False
+                        ...0 .... = proxiable: False
+                        .... 0... = proxy: False
+                        .... .0.. = may-postdate: False
+                        .... ..0. = postdated: False
+                        .... ...0 = invalid: False
+                        1... .... = renewable: True
+                        .1.. .... = initial: True
+                        ..1. .... = pre-authent: True
+                        ...0 .... = hw-authent: False
+                        .... 0... = transited-policy-checked: False
+                        .... .0.. = ok-as-delegate: False
+                        .... ..0. = unused: False
+                        .... ...1 = enc-pa-rep: True
+                        0... .... = anonymous: False
+                    authtime: 2019-07-05 21:44:43 (UTC)
+                    starttime: 2019-07-05 21:44:43 (UTC)
+                    endtime: 2019-07-06 07:44:43 (UTC)
+                    renew-till: 2019-07-12 21:44:43 (UTC)
+                    srealm: ALPHA.LOCAL
+                    sname
+                        name-type: kRB5-NT-SRV-INST (2)
+                        sname-string: 2 items
+                            SNameString: krbtgt
+                            SNameString: ALPHA.LOCAL
+                    encrypted-pa-data: 1 item
+                        PA-DATA PA-REQ-ENC-PA-REP
+                            padata-type: PA-REQ-ENC-PA-REP (149)
+                                padata-value: 3015a003020110a10e040c470c02d6a0bef81f12c83389
+                                    cksumtype: cKSUMTYPE-HMAC-SHA1-96-AES-256 (16)
+                                    checksum: 470c02d6a0bef81f12c83389
+
+Frame 16: 267 bytes on wire (2136 bits), 267 bytes captured (2136 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.60, Dst: 172.16.1.10
+Transmission Control Protocol, Src Port: 59034, Dst Port: 88, Seq: 1461, Ack: 1, Len: 211
+[2 Reassembled TCP Segments (1671 bytes): #15(1460), #16(211)]
+Kerberos
+    Record Mark: 1667 bytes
+        0... .... .... .... .... .... .... .... = Reserved: Not set
+        .000 0000 0000 0000 0000 0110 1000 0011 = Record Length: 1667
+    tgs-req
+        pvno: 5
+        msg-type: krb-tgs-req (12)
+        padata: 3 items
+            PA-DATA PA-TGS-REQ
+                padata-type: PA-TGS-REQ (1)
+                    padata-value: 6e8204dd308204d9a003020105a10302010ea20703050000000000a38204066182040230…
+                        ap-req
+                            pvno: 5
+                            msg-type: krb-ap-req (14)
+                            Padding: 0
+                            ap-options: 00000000
+                                0... .... = reserved: False
+                                .0.. .... = use-session-key: False
+                                ..0. .... = mutual-required: False
+                            ticket
+                                tkt-vno: 5
+                                realm: ALPHA.LOCAL
+                                sname
+                                    name-type: kRB5-NT-SRV-INST (2)
+                                    sname-string: 2 items
+                                        SNameString: krbtgt
+                                        SNameString: ALPHA.LOCAL
+                                enc-part
+                                    etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                                    kvno: 2
+                                    cipher: 6261819a0f09f3c6a2ad425837081af35c0e2875b9a9048761671a1da6b62290be7581f6…
+                                        Decrypted keytype 18 usage 2 in frame 16 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                            [Expert Info (Chat/Security): Decrypted keytype 18 usage 2 in frame 16 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                [Decrypted keytype 18 usage 2 in frame 16 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                [Severity level: Chat]
+                                                [Group: Security]
+                                        encTicketPart
+                                            Padding: 0
+                                            flags: 00e10000 (renewable, initial, pre-authent, enc-pa-rep)
+                                                0... .... = reserved: False
+                                                .0.. .... = forwardable: False
+                                                ..0. .... = forwarded: False
+                                                ...0 .... = proxiable: False
+                                                .... 0... = proxy: False
+                                                .... .0.. = may-postdate: False
+                                                .... ..0. = postdated: False
+                                                .... ...0 = invalid: False
+                                                1... .... = renewable: True
+                                                .1.. .... = initial: True
+                                                ..1. .... = pre-authent: True
+                                                ...0 .... = hw-authent: False
+                                                .... 0... = transited-policy-checked: False
+                                                .... .0.. = ok-as-delegate: False
+                                                .... ..0. = unused: False
+                                                .... ...1 = enc-pa-rep: True
+                                                0... .... = anonymous: False
+                                            key
+                                                keytype: 18
+                                                keyvalue: d9d2564ee1bbbb45f1fb8473e028b7d9e75e201a8954a39411c713df55ab8a05
+                                            crealm: ALPHA.LOCAL
+                                            cname
+                                                name-type: kRB5-NT-PRINCIPAL (1)
+                                                cname-string: 1 item
+                                                    CNameString: apache
+                                            transited
+                                                tr-type: 0
+                                                contents: <MISSING>
+                                            authtime: 2019-07-05 21:44:43 (UTC)
+                                            starttime: 2019-07-05 21:44:43 (UTC)
+                                            endtime: 2019-07-06 07:44:43 (UTC)
+                                            renew-till: 2019-07-12 21:44:43 (UTC)
+                                            authorization-data: 1 item
+                                                AuthorizationData item
+                                                    ad-type: AD-IF-RELEVANT (1)
+                                                    ad-data: 308202ba308202b6a00402020080a18202ac048202a8050000000000000001000000c801…
+                                                        AuthorizationData item
+                                                            ad-type: AD-WIN2K-PAC (128)
+                                                            ad-data: 050000000000000001000000c801000058000000000000000a0000001600000020020000…
+                                                                Verified Server checksum 16 keytype 18 in frame 16 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                                                    [Expert Info (Chat/Security): Verified Server checksum 16 keytype 18 in frame 16 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                                        [Verified Server checksum 16 keytype 18 in frame 16 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                                        [Severity level: Chat]
+                                                                        [Group: Security]
+                                                                Verified KDC checksum 16 keytype 18 in frame 16 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                                                    [Expert Info (Chat/Security): Verified KDC checksum 16 keytype 18 in frame 16 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                                        [Verified KDC checksum 16 keytype 18 in frame 16 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                                        [Severity level: Chat]
+                                                                        [Group: Security]
+                                                                Num Entries: 5
+                                                                Version: 0
+                                                                Type: Logon Info (1)
+                                                                    Size: 456
+                                                                    Offset: 88
+                                                                    PAC_LOGON_INFO: 01100800ccccccccb801000000000000000002002cf853db7a33d501ffffffffffffff7f…
+                                                                        MES header
+                                                                            Version: 1
+                                                                            DREP
+                                                                                Byte order: Little-endian (1)
+                                                                            HDR Length: 8
+                                                                            Fill bytes: 0xcccccccc
+                                                                            Blob Length: 440
+                                                                        PAC_LOGON_INFO:
+                                                                            Referent ID: 0x00020000
+                                                                            Logon Time: Jul  6, 2019 00:44:43.603767600 IDT
+                                                                            Logoff Time: Infinity (absolute time)
+                                                                            Kickoff Time: Infinity (absolute time)
+                                                                            PWD Last Set: May 10, 2019 14:38:20.752039100 IDT
+                                                                            PWD Can Change: May 10, 2019 14:38:20.752039100 IDT
+                                                                            PWD Must Change: Infinity (absolute time)
+                                                                            Acct Name: apache
+                                                                                Length: 12
+                                                                                Size: 12
+                                                                                Character Array: apache
+                                                                                    Referent ID: 0x00020004
+                                                                                    Max Count: 6
+                                                                                    Offset: 0
+                                                                                    Actual Count: 6
+                                                                                    Acct Name: apache
+                                                                            Full Name: apache
+                                                                                Length: 12
+                                                                                Size: 12
+                                                                                Character Array: apache
+                                                                                    Referent ID: 0x00020008
+                                                                                    Max Count: 6
+                                                                                    Offset: 0
+                                                                                    Actual Count: 6
+                                                                                    Full Name: apache
+                                                                            Logon Script
+                                                                                Length: 0
+                                                                                Size: 0
+                                                                                Character Array
+                                                                                    Referent ID: 0x0002000c
+                                                                                    Max Count: 0
+                                                                                    Offset: 0
+                                                                                    Actual Count: 0
+                                                                            Profile Path
+                                                                                Length: 0
+                                                                                Size: 0
+                                                                                Character Array
+                                                                                    Referent ID: 0x00020010
+                                                                                    Max Count: 0
+                                                                                    Offset: 0
+                                                                                    Actual Count: 0
+                                                                            Home Dir
+                                                                                Length: 0
+                                                                                Size: 0
+                                                                                Character Array
+                                                                                    Referent ID: 0x00020014
+                                                                                    Max Count: 0
+                                                                                    Offset: 0
+                                                                                    Actual Count: 0
+                                                                            Dir Drive
+                                                                                Length: 0
+                                                                                Size: 0
+                                                                                Character Array
+                                                                                    Referent ID: 0x00020018
+                                                                                    Max Count: 0
+                                                                                    Offset: 0
+                                                                                    Actual Count: 0
+                                                                            Logon Count: 160
+                                                                            Bad PW Count: 0
+                                                                            User RID: 1122
+                                                                            Group RID: 513
+                                                                            Num RIDs: 1
+                                                                            GROUP_MEMBERSHIP_ARRAY
+                                                                                Referent ID: 0x0002001c
+                                                                                Max Count: 1
+                                                                                GROUP_MEMBERSHIP:
+                                                                                    Group RID: 513
+                                                                                    Attributes: 0x00000007
+                                                                                        .... .... .... .... .... .... .... .1.. = Enabled: The enabled bit is SET
+                                                                                        .... .... .... .... .... .... .... ..1. = Enabled By Default: The ENABLED_BY_DEFAULT bit is SET
+                                                                                        .... .... .... .... .... .... .... ...1 = Mandatory: The MANDATORY bit is SET
+                                                                            User Flags: 0x00000020
+                                                                                .... .... .... .... .... ..0. .... .... = Resource Groups: The resource_groups is NOT set
+                                                                                .... .... .... .... .... .... ..1. .... = Extra SIDs: The EXTRA_SIDS bit is SET
+                                                                            User Session Key: 00000000000000000000000000000000
+                                                                            Server: DC11-TEST
+                                                                                Length: 18
+                                                                                Size: 20
+                                                                                Character Array: DC11-TEST
+                                                                                    Referent ID: 0x00020020
+                                                                                    Max Count: 10
+                                                                                    Offset: 0
+                                                                                    Actual Count: 9
+                                                                                    Server: DC11-TEST
+                                                                            Domain: ALPHA
+                                                                                Length: 10
+                                                                                Size: 12
+                                                                                Character Array: ALPHA
+                                                                                    Referent ID: 0x00020024
+                                                                                    Max Count: 6
+                                                                                    Offset: 0
+                                                                                    Actual Count: 5
+                                                                                    Domain: ALPHA
+                                                                            SID pointer:
+                                                                                SID pointer
+                                                                                    Referent ID: 0x00020028
+                                                                                    Count: 4
+                                                                                    Domain SID: S-1-5-21-1762001203-1324844870-79005677  (Domain SID)
+                                                                                        Revision: 1
+                                                                                        Num Auth: 4
+                                                                                        Authority: 5
+                                                                                        Subauthorities: 21-1762001203-1324844870-79005677
+                                                                            Dummy1 Long: 0x00000000
+                                                                            Dummy2 Long: 0x00000000
+                                                                            User Account Control: 0x00000210
+                                                                                .... .... .... ...0 .... .... .... .... = Don't Require PreAuth: This account REQUIRES preauthentication
+                                                                                .... .... .... .... 0... .... .... .... = Use DES Key Only: This account does NOT have to use_des_key_only
+                                                                                .... .... .... .... .0.. .... .... .... = Not Delegated: This might have been delegated
+                                                                                .... .... .... .... ..0. .... .... .... = Trusted For Delegation: This account is NOT trusted_for_delegation
+                                                                                .... .... .... .... ...0 .... .... .... = SmartCard Required: This account does NOT require_smartcard to authenticate
+                                                                                .... .... .... .... .... 0... .... .... = Encrypted Text Password Allowed: This account does NOT allow encrypted_text_password
+                                                                                .... .... .... .... .... .0.. .... .... = Account Auto Locked: This account is NOT auto_locked
+                                                                                .... .... .... .... .... ..1. .... .... = Don't Expire Password: This account DOESN'T_EXPIRE_PASSWORDs
+                                                                                .... .... .... .... .... ...0 .... .... = Server Trust Account: This account is NOT a server_trust_account
+                                                                                .... .... .... .... .... .... 0... .... = Workstation Trust Account: This account is NOT a workstation_trust_account
+                                                                                .... .... .... .... .... .... .0.. .... = Interdomain trust Account: This account is NOT an interdomain_trust_account
+                                                                                .... .... .... .... .... .... ..0. .... = MNS Logon Account: This account is NOT a mns_logon_account
+                                                                                .... .... .... .... .... .... ...1 .... = Normal Account: This account is a NORMAL_ACCOUNT
+                                                                                .... .... .... .... .... .... .... 0... = Temp Duplicate Account: This account is NOT a temp_duplicate_account
+                                                                                .... .... .... .... .... .... .... .0.. = Password Not Required: This account REQUIRES a password
+                                                                                .... .... .... .... .... .... .... ..0. = Home Directory Required: This account does NOT require_home_directory
+                                                                                .... .... .... .... .... .... .... ...0 = Account Disabled: This account is NOT disabled
+                                                                            Dummy4 Long: 0x00000000
+                                                                            Dummy5 Long: 0x00000000
+                                                                            Dummy6 Long: 0x00000000
+                                                                            Dummy7 Long: 0x00000000
+                                                                            Dummy8 Long: 0x00000000
+                                                                            Dummy9 Long: 0x00000000
+                                                                            Dummy10 Long: 0x00000000
+                                                                            Num Extra SID: 1
+                                                                            SID_AND_ATTRIBUTES_ARRAY:
+                                                                                Referent ID: 0x0002002c
+                                                                                SID_AND_ATTRIBUTES array:
+                                                                                    Max Count: 1
+                                                                                    SID_AND_ATTRIBUTES:
+                                                                                        SID pointer:
+                                                                                            SID pointer
+                                                                                                Referent ID: 0x00020030
+                                                                                                Count: 1
+                                                                                                Domain SID: S-1-18-1  ()
+                                                                                                    Revision: 1
+                                                                                                    Num Auth: 1
+                                                                                                    Authority: 18
+                                                                                                    Subauthorities: 1
+                                                                                        Attributes: 0x00000007
+                                                                            SID pointer:
+                                                                                NULL Pointer: SID pointer
+                                                                            ResourceGroup count: 0
+                                                                            NULL Pointer: ResourceGroupIDs
+                                                                Type: Client Info Type (10)
+                                                                    Size: 22
+                                                                    Offset: 544
+                                                                    PAC_CLIENT_INFO_TYPE: 80d7f7da7a33d5010c00610070006100630068006500
+                                                                        ClientID: Jul  6, 2019 00:44:43.000000000 IDT
+                                                                        Name Length: 12
+                                                                        Name: apache
+                                                                Type: UPN DNS Info (12)
+                                                                    Size: 80
+                                                                    Offset: 568
+                                                                    UPN_DNS_INFO: 24001000160038000000000000000000610070006100630068006500400061006c007000…
+                                                                        UPN Len: 36
+                                                                        UPN Offset: 16
+                                                                        DNS Len: 22
+                                                                        DNS Offset: 56
+                                                                        Flags: 0x00000000
+                                                                        UPN Name: apache@alpha.local
+                                                                        DNS Name: ALPHA.LOCAL
+                                                                Type: Server Checksum (6)
+                                                                    Size: 16
+                                                                    Offset: 648
+                                                                    PAC_SERVER_CHECKSUM: 100000005bede1f37a0514dde773e3b1
+                                                                        Type: 16
+                                                                        Signature: 5bede1f37a0514dde773e3b1
+                                                                Type: Privsvr Checksum (7)
+                                                                    Size: 16
+                                                                    Offset: 664
+                                                                    PAC_PRIVSVR_CHECKSUM: 10000000cf97ae2a5279e810ea6079de
+                                                                        Type: 16
+                                                                        Signature: cf97ae2a5279e810ea6079de
+                            authenticator
+                                etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                                cipher: 2b6b7fc14403c04371d8b648335bc46584fe358b59cb874d25877f61a755ad3ebcfc0f14…
+                                    Decrypted keytype 18 usage 7 in frame 16 using key learnt from frame 16 (d9d2564e...)
+                                        [Expert Info (Chat/Security): Decrypted keytype 18 usage 7 in frame 16 using key learnt from frame 16 (d9d2564e...)]
+                                            [Decrypted keytype 18 usage 7 in frame 16 using key learnt from frame 16 (d9d2564e...)]
+                                            [Severity level: Chat]
+                                            [Group: Security]
+                                    authenticator
+                                        authenticator-vno: 5
+                                        crealm: ALPHA.LOCAL
+                                        cname
+                                            name-type: kRB5-NT-PRINCIPAL (1)
+                                            cname-string: 1 item
+                                                CNameString: apache
+                                        cksum
+                                            cksumtype: cKSUMTYPE-HMAC-SHA1-96-AES-256 (16)
+                                            checksum: 1700c342b7605cef1f0ca1fa
+                                        cusec: 614677
+                                        ctime: 2019-07-05 21:44:43 (UTC)
+                                        subkey
+                                            keytype: 18
+                                            keyvalue: 5c4afa6c429b8135272bd465014981bc76eb0c97e589ef72c3c822dd0d52acca
+            PA-DATA Unknown:222
+                padata-type: Unknown (222)
+                    padata-value: a081df3081dca1173015a003020110a10e040cfa17e1691ed2057198b26a7fa281c03081…
+            PA-DATA PA-REQ-ENC-PA-REP
+                padata-type: PA-REQ-ENC-PA-REP (149)
+                    padata-value: <MISSING>
+        req-body
+            Padding: 0
+            kdc-options: 00810000 (renewable, canonicalize)
+                0... .... = reserved: False
+                .0.. .... = forwardable: False
+                ..0. .... = forwarded: False
+                ...0 .... = proxiable: False
+                .... 0... = proxy: False
+                .... .0.. = allow-postdate: False
+                .... ..0. = postdated: False
+                .... ...0 = unused7: False
+                1... .... = renewable: True
+                .0.. .... = unused9: False
+                ..0. .... = unused10: False
+                ...0 .... = opt-hardware-auth: False
+                .... 0... = unused12: False
+                .... .0.. = unused13: False
+                .... ..0. = constrained-delegation: False
+                .... ...1 = canonicalize: True
+                0... .... = request-anonymous: False
+                .0.. .... = unused17: False
+                ..0. .... = unused18: False
+                ...0 .... = unused19: False
+                .... 0... = unused20: False
+                .... .0.. = unused21: False
+                .... ..0. = unused22: False
+                .... ...0 = unused23: False
+                0... .... = unused24: False
+                .0.. .... = unused25: False
+                ..0. .... = disable-transited-check: False
+                ...0 .... = renewable-ok: False
+                .... 0... = enc-tkt-in-skey: False
+                .... .0.. = unused29: False
+                .... ..0. = renew: False
+                .... ...0 = validate: False
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                sname-string: 2 items
+                    SNameString: HTTP
+                    SNameString: apache.alpha.local
+            till: 2019-07-06 07:44:43 (UTC)
+            nonce: 585725092
+            etype: 8 items
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA1-96 (17)
+                ENCTYPE: eTYPE-AES256-CTS-HMAC-SHA384-192 (20)
+                ENCTYPE: eTYPE-AES128-CTS-HMAC-SHA256-128 (19)
+                ENCTYPE: eTYPE-DES3-CBC-SHA1 (16)
+                ENCTYPE: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                ENCTYPE: eTYPE-CAMELLIA128-CTS-CMAC (25)
+                ENCTYPE: eTYPE-CAMELLIA256-CTS-CMAC (26)
+
+Frame 17: 1422 bytes on wire (11376 bits), 1422 bytes captured (11376 bits) on interface 0
+Linux cooked capture
+Internet Protocol Version 4, Src: 172.16.1.10, Dst: 172.16.1.60
+Transmission Control Protocol, Src Port: 88, Dst Port: 59034, Seq: 1, Ack: 1672, Len: 1366
+Kerberos
+    Record Mark: 1362 bytes
+        0... .... .... .... .... .... .... .... = Reserved: Not set
+        .000 0000 0000 0000 0000 0101 0101 0010 = Record Length: 1362
+    tgs-rep
+        pvno: 5
+        msg-type: krb-tgs-rep (13)
+        crealm: ALPHA.LOCAL
+        cname
+            name-type: kRB5-NT-PRINCIPAL (1)
+            cname-string: 1 item
+                CNameString: apache
+        ticket
+            tkt-vno: 5
+            realm: ALPHA.LOCAL
+            sname
+                name-type: kRB5-NT-PRINCIPAL (1)
+                sname-string: 2 items
+                    SNameString: HTTP
+                    SNameString: apache.alpha.local
+            enc-part
+                etype: eTYPE-ARCFOUR-HMAC-MD5 (23)
+                kvno: 2
+                cipher: ce632f46cc59ddf861343bbe1f190aac0d400581a454a6a5e278ed89978a68b3d85d56f8…
+                    Decrypted keytype 23 usage 2 in frame 17 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)
+                        [Expert Info (Chat/Security): Decrypted keytype 23 usage 2 in frame 17 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                            [Decrypted keytype 23 usage 2 in frame 17 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                            [Severity level: Chat]
+                            [Group: Security]
+                    encTicketPart
+                        Padding: 0
+                        flags: 00a10000 (renewable, pre-authent, enc-pa-rep)
+                            0... .... = reserved: False
+                            .0.. .... = forwardable: False
+                            ..0. .... = forwarded: False
+                            ...0 .... = proxiable: False
+                            .... 0... = proxy: False
+                            .... .0.. = may-postdate: False
+                            .... ..0. = postdated: False
+                            .... ...0 = invalid: False
+                            1... .... = renewable: True
+                            .0.. .... = initial: False
+                            ..1. .... = pre-authent: True
+                            ...0 .... = hw-authent: False
+                            .... 0... = transited-policy-checked: False
+                            .... .0.. = ok-as-delegate: False
+                            .... ..0. = unused: False
+                            .... ...1 = enc-pa-rep: True
+                            0... .... = anonymous: False
+                        key
+                            keytype: 23
+                            keyvalue: 4011fda01f14d62181423fc99ec78373
+                        crealm: ALPHA.LOCAL
+                        cname
+                            name-type: kRB5-NT-PRINCIPAL (1)
+                            cname-string: 1 item
+                                CNameString: apache
+                        transited
+                            tr-type: 1
+                            contents: <MISSING>
+                        authtime: 2019-07-05 21:44:43 (UTC)
+                        starttime: 2019-07-05 21:44:43 (UTC)
+                        endtime: 2019-07-06 07:44:43 (UTC)
+                        renew-till: 2019-07-12 21:44:43 (UTC)
+                        authorization-data: 1 item
+                            AuthorizationData item
+                                ad-type: AD-IF-RELEVANT (1)
+                                ad-data: 308202c2308202bea00402020080a18202b4048202b0050000000000000001000000c801…
+                                    AuthorizationData item
+                                        ad-type: AD-WIN2K-PAC (128)
+                                        ad-data: 050000000000000001000000c801000058000000000000000a0000001600000020020000…
+                                            Verified Server checksum -138 keytype 23 in frame 17 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)
+                                                [Expert Info (Chat/Security): Verified Server checksum -138 keytype 23 in frame 17 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                                                    [Verified Server checksum -138 keytype 23 in frame 17 using keytab principal apache@HACKERS.DEVEL.ALPHA.LOCAL (ed231120...)]
+                                                    [Severity level: Chat]
+                                                    [Group: Security]
+                                            Verified KDC checksum 16 keytype 18 in frame 17 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)
+                                                [Expert Info (Chat/Security): Verified KDC checksum 16 keytype 18 in frame 17 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Verified KDC checksum 16 keytype 18 in frame 17 using keytab principal krbtgt@ALPHA.LOCAL (947a5b55...)]
+                                                    [Severity level: Chat]
+                                                    [Group: Security]
+                                            Num Entries: 5
+                                            Version: 0
+                                            Type: Logon Info (1)
+                                                Size: 456
+                                                Offset: 88
+                                                PAC_LOGON_INFO: 01100800ccccccccb801000000000000000002002cf853db7a33d501ffffffffffffff7f…
+                                                    MES header
+                                                        Version: 1
+                                                        DREP
+                                                            Byte order: Little-endian (1)
+                                                        HDR Length: 8
+                                                        Fill bytes: 0xcccccccc
+                                                        Blob Length: 440
+                                                    PAC_LOGON_INFO:
+                                                        Referent ID: 0x00020000
+                                                        Logon Time: Jul  6, 2019 00:44:43.603767600 IDT
+                                                        Logoff Time: Infinity (absolute time)
+                                                        Kickoff Time: Infinity (absolute time)
+                                                        PWD Last Set: May 10, 2019 14:38:20.752039100 IDT
+                                                        PWD Can Change: May 10, 2019 14:38:20.752039100 IDT
+                                                        PWD Must Change: Infinity (absolute time)
+                                                        Acct Name: apache
+                                                            Length: 12
+                                                            Size: 12
+                                                            Character Array: apache
+                                                                Referent ID: 0x00020004
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 6
+                                                                Acct Name: apache
+                                                        Full Name: apache
+                                                            Length: 12
+                                                            Size: 12
+                                                            Character Array: apache
+                                                                Referent ID: 0x00020008
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 6
+                                                                Full Name: apache
+                                                        Logon Script
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x0002000c
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Profile Path
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020010
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Home Dir
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020014
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Dir Drive
+                                                            Length: 0
+                                                            Size: 0
+                                                            Character Array
+                                                                Referent ID: 0x00020018
+                                                                Max Count: 0
+                                                                Offset: 0
+                                                                Actual Count: 0
+                                                        Logon Count: 160
+                                                        Bad PW Count: 0
+                                                        User RID: 1122
+                                                        Group RID: 513
+                                                        Num RIDs: 1
+                                                        GROUP_MEMBERSHIP_ARRAY
+                                                            Referent ID: 0x0002001c
+                                                            Max Count: 1
+                                                            GROUP_MEMBERSHIP:
+                                                                Group RID: 513
+                                                                Attributes: 0x00000007
+                                                                    .... .... .... .... .... .... .... .1.. = Enabled: The enabled bit is SET
+                                                                    .... .... .... .... .... .... .... ..1. = Enabled By Default: The ENABLED_BY_DEFAULT bit is SET
+                                                                    .... .... .... .... .... .... .... ...1 = Mandatory: The MANDATORY bit is SET
+                                                        User Flags: 0x00000020
+                                                            .... .... .... .... .... ..0. .... .... = Resource Groups: The resource_groups is NOT set
+                                                            .... .... .... .... .... .... ..1. .... = Extra SIDs: The EXTRA_SIDS bit is SET
+                                                        User Session Key: 00000000000000000000000000000000
+                                                        Server: DC11-TEST
+                                                            Length: 18
+                                                            Size: 20
+                                                            Character Array: DC11-TEST
+                                                                Referent ID: 0x00020020
+                                                                Max Count: 10
+                                                                Offset: 0
+                                                                Actual Count: 9
+                                                                Server: DC11-TEST
+                                                        Domain: ALPHA
+                                                            Length: 10
+                                                            Size: 12
+                                                            Character Array: ALPHA
+                                                                Referent ID: 0x00020024
+                                                                Max Count: 6
+                                                                Offset: 0
+                                                                Actual Count: 5
+                                                                Domain: ALPHA
+                                                        SID pointer:
+                                                            SID pointer
+                                                                Referent ID: 0x00020028
+                                                                Count: 4
+                                                                Domain SID: S-1-5-21-1762001203-1324844870-79005677  (Domain SID)
+                                                                    Revision: 1
+                                                                    Num Auth: 4
+                                                                    Authority: 5
+                                                                    Subauthorities: 21-1762001203-1324844870-79005677
+                                                        Dummy1 Long: 0x00000000
+                                                        Dummy2 Long: 0x00000000
+                                                        User Account Control: 0x00000210
+                                                            .... .... .... ...0 .... .... .... .... = Don't Require PreAuth: This account REQUIRES preauthentication
+                                                            .... .... .... .... 0... .... .... .... = Use DES Key Only: This account does NOT have to use_des_key_only
+                                                            .... .... .... .... .0.. .... .... .... = Not Delegated: This might have been delegated
+                                                            .... .... .... .... ..0. .... .... .... = Trusted For Delegation: This account is NOT trusted_for_delegation
+                                                            .... .... .... .... ...0 .... .... .... = SmartCard Required: This account does NOT require_smartcard to authenticate
+                                                            .... .... .... .... .... 0... .... .... = Encrypted Text Password Allowed: This account does NOT allow encrypted_text_password
+                                                            .... .... .... .... .... .0.. .... .... = Account Auto Locked: This account is NOT auto_locked
+                                                            .... .... .... .... .... ..1. .... .... = Don't Expire Password: This account DOESN'T_EXPIRE_PASSWORDs
+                                                            .... .... .... .... .... ...0 .... .... = Server Trust Account: This account is NOT a server_trust_account
+                                                            .... .... .... .... .... .... 0... .... = Workstation Trust Account: This account is NOT a workstation_trust_account
+                                                            .... .... .... .... .... .... .0.. .... = Interdomain trust Account: This account is NOT an interdomain_trust_account
+                                                            .... .... .... .... .... .... ..0. .... = MNS Logon Account: This account is NOT a mns_logon_account
+                                                            .... .... .... .... .... .... ...1 .... = Normal Account: This account is a NORMAL_ACCOUNT
+                                                            .... .... .... .... .... .... .... 0... = Temp Duplicate Account: This account is NOT a temp_duplicate_account
+                                                            .... .... .... .... .... .... .... .0.. = Password Not Required: This account REQUIRES a password
+                                                            .... .... .... .... .... .... .... ..0. = Home Directory Required: This account does NOT require_home_directory
+                                                            .... .... .... .... .... .... .... ...0 = Account Disabled: This account is NOT disabled
+                                                        Dummy4 Long: 0x00000000
+                                                        Dummy5 Long: 0x00000000
+                                                        Dummy6 Long: 0x00000000
+                                                        Dummy7 Long: 0x00000000
+                                                        Dummy8 Long: 0x00000000
+                                                        Dummy9 Long: 0x00000000
+                                                        Dummy10 Long: 0x00000000
+                                                        Num Extra SID: 1
+                                                        SID_AND_ATTRIBUTES_ARRAY:
+                                                            Referent ID: 0x0002002c
+                                                            SID_AND_ATTRIBUTES array:
+                                                                Max Count: 1
+                                                                SID_AND_ATTRIBUTES:
+                                                                    SID pointer:
+                                                                        SID pointer
+                                                                            Referent ID: 0x00020030
+                                                                            Count: 1
+                                                                            Domain SID: S-1-18-1  ()
+                                                                                Revision: 1
+                                                                                Num Auth: 1
+                                                                                Authority: 18
+                                                                                Subauthorities: 1
+                                                                    Attributes: 0x00000007
+                                                        SID pointer:
+                                                            NULL Pointer: SID pointer
+                                                        ResourceGroup count: 0
+                                                        NULL Pointer: ResourceGroupIDs
+                                            Type: Client Info Type (10)
+                                                Size: 22
+                                                Offset: 544
+                                                PAC_CLIENT_INFO_TYPE: 80d7f7da7a33d5010c00610070006100630068006500
+                                                    ClientID: Jul  6, 2019 00:44:43.000000000 IDT
+                                                    Name Length: 12
+                                                    Name: apache
+                                            Type: UPN DNS Info (12)
+                                                Size: 80
+                                                Offset: 568
+                                                UPN_DNS_INFO: 24001000160038000000000000000000610070006100630068006500400061006c007000…
+                                                    UPN Len: 36
+                                                    UPN Offset: 16
+                                                    DNS Len: 22
+                                                    DNS Offset: 56
+                                                    Flags: 0x00000000
+                                                    UPN Name: apache@alpha.local
+                                                    DNS Name: ALPHA.LOCAL
+                                            Type: Server Checksum (6)
+                                                Size: 20
+                                                Offset: 648
+                                                PAC_SERVER_CHECKSUM: 76ffffffbf8dc37e81fd139bb80fa4e88ba8463f
+                                                    Type: -138
+                                                    Signature: bf8dc37e81fd139bb80fa4e88ba8463f
+                                            Type: Privsvr Checksum (7)
+                                                Size: 16
+                                                Offset: 672
+                                                PAC_PRIVSVR_CHECKSUM: 1000000043283af29229aefc57fc6c19
+                                                    Type: 16
+                                                    Signature: 43283af29229aefc57fc6c19
+        enc-part
+            etype: eTYPE-AES256-CTS-HMAC-SHA1-96 (18)
+            cipher: c1df0c79760dc1bd09ea61e2c9c8c727c6d7741a2ea7a095763fc60bb353358c557f6d0d…
+                Decrypted keytype 18 usage 9 in frame 17 using key learnt from frame 16 (5c4afa6c...)
+                    [Expert Info (Chat/Security): Decrypted keytype 18 usage 9 in frame 17 using key learnt from frame 16 (5c4afa6c...)]
+                        [Decrypted keytype 18 usage 9 in frame 17 using key learnt from frame 16 (5c4afa6c...)]
+                        [Severity level: Chat]
+                        [Group: Security]
+                encTGSRepPart
+                    key
+                        keytype: 23
+                        keyvalue: 4011fda01f14d62181423fc99ec78373
+                    last-req: 1 item
+                        LastReq item
+                            lr-type: lR-NONE (0)
+                            lr-value: 2019-07-05 21:44:43 (UTC)
+                    nonce: 585725092
+                    Padding: 0
+                    flags: 00a10000 (renewable, pre-authent, enc-pa-rep)
+                        0... .... = reserved: False
+                        .0.. .... = forwardable: False
+                        ..0. .... = forwarded: False
+                        ...0 .... = proxiable: False
+                        .... 0... = proxy: False
+                        .... .0.. = may-postdate: False
+                        .... ..0. = postdated: False
+                        .... ...0 = invalid: False
+                        1... .... = renewable: True
+                        .0.. .... = initial: False
+                        ..1. .... = pre-authent: True
+                        ...0 .... = hw-authent: False
+                        .... 0... = transited-policy-checked: False
+                        .... .0.. = ok-as-delegate: False
+                        .... ..0. = unused: False
+                        .... ...1 = enc-pa-rep: True
+                        0... .... = anonymous: False
+                    authtime: 2019-07-05 21:44:43 (UTC)
+                    starttime: 2019-07-05 21:44:43 (UTC)
+                    endtime: 2019-07-06 07:44:43 (UTC)
+                    renew-till: 2019-07-12 21:44:43 (UTC)
+                    srealm: ALPHA.LOCAL
+                    sname
+                        name-type: kRB5-NT-PRINCIPAL (1)
+                        sname-string: 2 items
+                            SNameString: HTTP
+                            SNameString: apache.alpha.local
+                    encrypted-pa-data: 1 item
+                        PA-DATA PA-SUPPORTED-ETYPES
+                            padata-type: PA-SUPPORTED-ETYPES (165)
+                                padata-value: 07000000
+                                    SupportedEnctypes: 0x00000007, des-cbc-crc, des-cbc-md5, rc4-hmac
+                                        .... .... .... .... .... .... .... ...1 = des-cbc-crc: Supported
+                                        .... .... .... .... .... .... .... ..1. = des-cbc-md5: Supported
+                                        .... .... .... .... .... .... .... .1.. = rc4-hmac: Supported
+                                        .... .... .... .... .... .... .... 0... = aes128-cts-hmac-sha1-96: Not supported
+                                        .... .... .... .... .... .... ...0 .... = aes256-cts-hmac-sha1-96: Not supported
+                                        .... .... .... ...0 .... .... .... .... = fast-supported: Not supported
+                                        .... .... .... ..0. .... .... .... .... = compound-identity-supported: Not supported
+                                        .... .... .... .0.. .... .... .... .... = claims-supported: Not supported
+                                        .... .... .... 0... .... .... .... .... = resource-sid-compression-disabled: Not supported
+
