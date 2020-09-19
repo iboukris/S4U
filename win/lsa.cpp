@@ -6,6 +6,8 @@
  * $ i686-w64-mingw32-g++ lsa.cpp -static -lsecur32 -o lsa.exe
  */
 
+#define _WIN32_WINNT 0x0600
+
 #include <fstream>
 #include <stdio.h>
 #include <string.h>
