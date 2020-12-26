@@ -1,0 +1,91 @@
+In MS-PAC there is an example structure of logon-info, but not of delegation info:
+https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-pac/7d4f403e-cc0a-455f-8eeb-f38326a903a9
+
+This is the IDL of the delegation-info blob:
+
+ typedef struct _S4U_DELEGATION_INFO {
+     RPC_UNICODE_STRING S4U2proxyTarget;
+     ULONG TransitedListSize;
+     [size_is( TransitedListSize )]
+     PRPC_UNICODE_STRING S4UTransitedServices;
+ } S4U_DELEGATION_INFO, * PS4U_DELEGATION_INFO;
+
+And here's a delegation-info blob from the wire, notice alignment to 8 bytes:
+
+0010   00 00 02 00 24 00 26 00 04 00 02 00 01 00 00 00   ....$.&.........
+0000   01 10 08 00 cc cc cc cc 80 00 00 00 00 00 00 00   ................
+0020   08 00 02 00 13 00 00 00 00 00 00 00 12 00 00 00   ................
+0030   53 00 51 00 4c 00 2f 00 6d 00 79 00 73 00 71 00   S.Q.L./.m.y.s.q.
+0040   6c 00 2e 00 61 00 63 00 6d 00 65 00 2e 00 63 00   l...a.c.m.e...c.
+0050   6f 00 6d 00 01 00 00 00 1e 00 20 00 0c 00 02 00   o.m....... .....
+0060   10 00 00 00 00 00 00 00 0f 00 00 00 61 00 70 00   ............a.p.
+0070   61 00 63 00 68 00 65 00 40 00 41 00 43 00 4d 00   a.c.h.e.@.A.C.M.
+0080   45 00 2e 00 43 00 4f 00 4d 00 00 00 00 00 00 00   E...C.O.M.......
+
+Now let's try to parse it byte by byte, like in link MS-PAC above:
+
+0000   01 10 08 00 cc cc cc cc                           ........
+
+In the first 8 bytes we have the common-type-header:
+https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-rpce/6d75d40e-e2d2-4420-b9e9-8508a726a9ae
+version, byte-order, header-len, filler(0xcccccccc) = 8 bytes
+
+0000                           80 00 00 00 00 00 00 00           ........
+
+Then in the nest 8 bytes we have the private-header:
+https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-rpce/63949ba8-bc88-4c0c-9377-23f14b197827
+object-len, filler(0x00000000) = 8 bytes
+
+In this case the object-len the 128 bytes below, including the padding.
+
+0010   00 00 02 00 
+
+Here it starts the RPC-NDR, documented hairly in [C706]:
+https://pubs.opengroup.org/onlinepubs/9629399/toc.pdf
+                                      ....
+The first 4 bytes 0x00020000, looks like the first referent-id in the stream, followed by its representation.
+
+0010               24 00 26 00 04 00 02 00                   $.&.....
+
+This is the RPC_UNICODE_STRING S4U2proxyTarget, first we have Length(0x0024) and MaxLength(0x0026).
+Then we have the buffer as referent-id 0x00020004, but the representation is defered to later.
+
+0010                                       01 00 00 00               ....
+
+Then we have the TransitedListSize, 1 in this case.
+
+0020   08 00 02 00                                       ....
+
+Then the next referent-id 0x00020008 for the S4UTransitedServices array, representation defered.
+This is the end of the struct, now come the refereced buffers.
+
+0020               13 00 00 00 00 00 00 00 12 00 00 00   ................
+
+This is the representation of S4U2proxyTarget (0x00020004), three chunks of 4 bytes, standing for:
+MaxCount(19), offset(0), and ActualCount(18)
+
+0030   53 00 51 00 4c 00 2f 00 6d 00 79 00 73 00 71 00   S.Q.L./.m.y.s.q.
+0040   6c 00 2e 00 61 00 63 00 6d 00 65 00 2e 00 63 00   l...a.c.m.e...c.
+0050   6f 00 6d 00                                       o.m.
+
+The actual string data of S4U2proxyTarget: SQL/mysql.acme.com
+
+0050               01 00 00 00                               ....
+
+From wireshark disector; this looks like the length of the S4UTransitedServices array.
+
+0050                           1e 00 20 00 0c 00 02 00           .. .....
+
+And this is the first RPC_UNICODE_STRING element in the S4UTransitedServices array.
+We have again Length(0x001e) and MaxLength(0x0020), followed by referent-id 0x0002000c
+
+0060   10 00 00 00 00 00 00 00 0f 00 00 00               ............
+
+This is the data of the above element (0x0002000c), three chunks of 4 bytes, standing for:
+MaxCount(16), offset(0), and ActualCount(15)
+
+0060                                       61 00 70 00               a.p.
+0070   61 00 63 00 68 00 65 00 40 00 41 00 43 00 4d 00   a.c.h.e.@.A.C.M.
+0080   45 00 2e 00 43 00 4f 00 4d 00 00 00 00 00 00 00   E...C.O.M.......
+
+The RPC string data "apache@ACME.COM" and zero padding to align to 8 bytes.
