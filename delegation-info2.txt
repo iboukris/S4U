@@ -1,0 +1,81 @@
+A delegation-info blob with two transited services:
+
+0000   01 10 08 00 cc cc cc cc d0 00 00 00 00 00 00 00   ................
+0010   00 00 02 00 1c 00 1e 00 04 00 02 00 02 00 00 00   ................
+0020   08 00 02 00 0f 00 00 00 00 00 00 00 0e 00 00 00   ................
+0030   46 00 53 00 2f 00 73 00 33 00 2e 00 63 00 64 00   F.S./.s.3...c.d.
+0040   6f 00 6d 00 2e 00 63 00 6f 00 6d 00 02 00 00 00   o.m...c.o.m.....
+0050   32 00 34 00 0c 00 02 00 30 00 32 00 10 00 02 00   2.4.....0.2.....
+0060   1a 00 00 00 00 00 00 00 19 00 00 00 48 00 54 00   ............H.T.
+0070   54 00 50 00 2f 00 73 00 31 00 2e 00 63 00 64 00   T.P./.s.1...c.d.
+0080   6f 00 6d 00 2e 00 63 00 6f 00 6d 00 40 00 43 00   o.m...c.o.m.@.C.
+0090   44 00 4f 00 4d 00 2e 00 43 00 4f 00 4d 00 00 00   D.O.M...C.O.M...
+00a0   19 00 00 00 00 00 00 00 18 00 00 00 53 00 51 00   ............S.Q.
+00b0   4c 00 2f 00 73 00 32 00 2e 00 63 00 64 00 6f 00   L./.s.2...c.d.o.
+00c0   6d 00 2e 00 63 00 6f 00 6d 00 40 00 43 00 44 00   m...c.o.m.@.C.D.
+00d0   4f 00 4d 00 2e 00 43 00 4f 00 4d 00 00 00 00 00   O.M...C.O.M.....
+
+Let's break it down:
+
+0000   01 10 08 00 cc cc cc cc d0 00 00 00 00 00 00 00   ................
+
+The common and private headers, as previously.
+
+0010   00 00 02 00 1c 00 1e 00 04 00 02 00 02 00 00 00   ................
+
+The first 4 bytes is the first referent-id 0x00020000.
+
+The next 4 is the RPC_UNICODE_STRING S4U2proxyTarget, first we have Length(0x001c) and MaxLength(0x001e).
+The next 4 is the buffer of the above as referent-id 0x00020004, but the representation is defered to later.
+
+The last 4 is the TransitedListSize, 2 in this case.
+
+0020   08 00 02 00 0f 00 00 00 00 00 00 00 0e 00 00 00   ................
+
+The first 4 is the referent-id 0x00020008, for the S4UTransitedServices array.
+And here ends the main struct, now comes the heap.
+
+Next is the data of S4U2proxyTarget (0x00020004), three chunks of 4 bytes, standing for:
+MaxCount(15), offset(0), and ActualCount(14)
+
+0030   46 00 53 00 2f 00 73 00 33 00 2e 00 63 00 64 00   F.S./.s.3...c.d.
+0040   6f 00 6d 00 2e 00 63 00 6f 00 6d 00 02 00 00 00   o.m...c.o.m.....
+
+The actual string data of S4U2proxyTarget (0x00020004).
+
+While the last 4 bytes is the representaion of the S4UTransitedServices array (0x00020008).
+The data is the length of the array, 2 which is the same as the above TransitedListSize.
+
+0050   32 00 34 00 0c 00 02 00 30 00 32 00 10 00 02 00   2.4.....0.2.....
+
+The first 4 is the first RPC_UNICODE_STRING element in the array, first we have Length(0x0032) and MaxLength(0x0034).
+The next 4 is the buffer of the above as referent-id 0x0002000c, but the representation is defered to later.
+
+The next 4 is the second RPC_UNICODE_STRING element in the array, first we have Length(0x0030) and MaxLength(0x0032).
+The next 4 is the buffer of the above as referent-id 0x00020010, but the representation is defered to later.
+
+0060   1a 00 00 00 00 00 00 00 19 00 00 00 48 00 54 00   ............H.T.
+
+Next is the data of the first element (0x0002000c), three chunks of 4 bytes, standing for:
+MaxCount(26), offset(0), and ActualCount(25)
+
+The last 4 bytes is the beginning of the actual string data of the first array element (0x0002000c).
+
+0070   54 00 50 00 2f 00 73 00 31 00 2e 00 63 00 64 00   T.P./.s.1...c.d.
+0080   6f 00 6d 00 2e 00 63 00 6f 00 6d 00 40 00 43 00   o.m...c.o.m.@.C.
+0090   44 00 4f 00 4d 00 2e 00 43 00 4f 00 4d 00 00 00   D.O.M...C.O.M...
+
+The end of the above string, the last 2 bytes belong to the next section.
+
+00a0   19 00 00 00 00 00 00 00 18 00 00 00 53 00 51 00   ............S.Q.
+
+Next is the data of the second element (0x00020010), three chunks of 4 bytes, standing for:
+MaxCount(25), offset(0), and ActualCount(24)
+
+The last 4 bytes is the beginning of the actual string data of the second array element (0x00020010).
+
+00b0   4c 00 2f 00 73 00 32 00 2e 00 63 00 64 00 6f 00   L./.s.2...c.d.o.
+00c0   6d 00 2e 00 63 00 6f 00 6d 00 40 00 43 00 44 00   m...c.o.m.@.C.D.
+00d0   4f 00 4d 00 2e 00 43 00 4f 00 4d 00 00 00 00 00   O.M...C.O.M.....
+
+End of the above string and zero padding to align to 8.
