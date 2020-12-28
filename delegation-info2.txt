@@ -65,7 +65,8 @@ The last 4 bytes is the beginning of the actual string data of the first array e
 0080   6f 00 6d 00 2e 00 63 00 6f 00 6d 00 40 00 43 00   o.m...c.o.m.@.C.
 0090   44 00 4f 00 4d 00 2e 00 43 00 4f 00 4d 00 00 00   D.O.M...C.O.M...
 
-The end of the above string, the last 2 bytes belong to the next section.
+The end of the above string, the last 2 zero bytes are because the string is odd (25):
+HTTP/s1.cdom.com@CDOM.COM
 
 00a0   19 00 00 00 00 00 00 00 18 00 00 00 53 00 51 00   ............S.Q.
 
